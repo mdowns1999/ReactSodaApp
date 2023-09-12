@@ -1,4 +1,3 @@
-import './App.css';
 import Header from './components/Layout/Header';
 import Footer from './components/Layout/Footer';
 import { Fragment } from 'react';
