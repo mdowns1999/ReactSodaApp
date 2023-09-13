@@ -5,9 +5,6 @@ import { Fragment } from 'react';
 function App() {
   return (
     <Fragment>
-      <head>
-        <link></link>
-      </head>
     <Header/>
     <Footer/>
     </Fragment>

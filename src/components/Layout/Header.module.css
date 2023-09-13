@@ -1,6 +1,33 @@
-header {
+header{
     display: flex;
-    justify-content: space-between;
-    background-color: grey;
-    padding:30px;
+    background-color: var(--primaryColor, #0fa3b1);
 }
+
+.header {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.headerHome{
+    justify-content: center;
+}
+
+.headerHome img{
+    height: 175px;
+}
+
+.header img{
+    height: 125px;
+}
+
+
+@media screen and (min-width: 500px) {
+    .headerHome img{
+        height: 250px;
+    }
+    
+    .header img{
+        height: 150px;
+    }
+    
+  }
