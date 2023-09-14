@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import SodaItem from "./SodaItem";
 import classes from "./SodaProducts.module.css";
 
@@ -9,35 +9,35 @@ const SodaProducts = (props) => {
       name: "Sprite",
       description: "Just normal Sprites",
       price: 2.0,
-      imgRoute: require('../../images/blank.png'),
+      imgRoute: require("../../images/blank.png"),
     },
     {
       id: "s2",
       name: "Pepsi",
       description: "Just normal Pepsi",
       price: 2.5,
-      imgRoute: require('../../images/blank.png'),
+      imgRoute: require("../../images/blank.png"),
     },
     {
       id: "s3",
       name: "Dr.Pepper",
       description: "A white Girl drink",
       price: 12.99,
-      imgRoute: require('../../images/blank.png'),
+      imgRoute: require("../../images/blank.png"),
     },
-        {
+    {
       id: "s4",
       name: "Diet Pepsi",
       description: "Its Diet Pepsi",
       price: 2.5,
-      imgRoute: require('../../images/blank.png'),
+      imgRoute: require("../../images/blank.png"),
     },
     {
       id: "s5",
       name: "RootBeer",
       description: "Rootbeer.  Yup.",
       price: 12.99,
-      imgRoute: require('../../images/blank.png'),
+      imgRoute: require("../../images/blank.png"),
     },
   ];
 
@@ -52,14 +52,12 @@ const SodaProducts = (props) => {
     />
   ));
   return (
-    <main className={classes.sodaProductMain}>
+    <Fragment>
       <section className={classes.pageBanner}>
         <h1>Products</h1>
       </section>
-      <section className={classes.sodas}>
-          {sodaList}
-      </section>
-    </main>
+      <section className={classes.sodas}>{sodaList}</section>
+    </Fragment>
   );
 };
 

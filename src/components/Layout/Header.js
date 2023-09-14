@@ -3,7 +3,7 @@ import classes from './Header.module.css'
 import HeaderCartButton from "./HeaderCartButton";
 import Button from "../UI/Button";
 
-const Header = () => {
+const Header = (props) => {
 
     return <header className={classes.header}>
         <div><Button>
@@ -22,7 +22,7 @@ const Header = () => {
             </div>
             </Button></div>
          <a href="#"><img src={require('../../images/sodaLogo.png')} alt="Poppin Soda Shop Logo"></img></a>
-        <div><HeaderCartButton/></div>
+        <div><HeaderCartButton onClick={props.onShowCart}/></div>
     </header>
 
     // return <header className={classes.headerHome}>
