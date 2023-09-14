@@ -21,7 +21,7 @@ const Header = () => {
             <span>Shop</span>
             </div>
             </Button></div>
-         <img src={require('../../images/sodaLogo.png')} alt="Poppin Soda Shop Logo"></img>
+         <a href="#"><img src={require('../../images/sodaLogo.png')} alt="Poppin Soda Shop Logo"></img></a>
         <div><HeaderCartButton/></div>
     </header>
 

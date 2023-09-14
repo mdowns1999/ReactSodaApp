@@ -5,6 +5,7 @@
     align-items: center;
     gap:15px;
     background-color: var(--primaryColor, #0fa3b1);
+    padding:5px;
 }
 
 .header div{
@@ -20,9 +21,9 @@
     height: 175px;
 } */
 
-.header img{
-    height: 150px;
-}
+/* .header img{
+    height: 200px;
+} */
 
 .shopBtn{
     width: 100px;
@@ -36,13 +37,15 @@
     margin: 0 5px;
 }
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 750px) {
     .header{
         flex-direction: row;
     }
 
     .header img{
-        height: 200px;
+       height: 250px;
+       width:300px;
+      
     }
 
     .header div{

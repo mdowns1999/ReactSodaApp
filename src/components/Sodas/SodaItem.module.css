@@ -1,0 +1,17 @@
+.productBox {
+  display:block;
+  text-decoration: none;
+  color:black;
+  position: absolute;
+  border: 1px solid rgb(197, 197, 197);
+  border-radius: 5px;
+  height: 250px;
+  overflow: hidden;
+  transition: height 0.75s;
+  background-color: var(--secondaryColor, #d9e5d6);
+}
+
+.productBox:hover {
+  height: 290px;
+  
+}

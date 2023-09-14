@@ -1,0 +1,16 @@
+.card{
+    max-width: 250px;
+    width:200px;
+    height: 250px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.card:hover{
+    box-shadow: 0 4px 8px 0 #b5b5b5, 0 6px 20px 0 #b5b5b5;
+    transition: 0.25s;
+}
+
+.card img{
+    height: 250px;
+}

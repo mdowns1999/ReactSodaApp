@@ -1,0 +1,18 @@
+.sodaProductMain{
+    margin: 50px auto;
+    max-width: 1200px;
+}
+
+.pageBanner{
+text-align: center;
+margin: 50px 0;
+
+}
+
+.sodas{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    gap:3em; 
+
+}
