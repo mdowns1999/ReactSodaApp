@@ -21,9 +21,9 @@
     height: 175px;
 } */
 
-/* .header img{
+.header img{
     height: 200px;
-} */
+}
 
 .shopBtn{
     width: 100px;
@@ -43,8 +43,8 @@
     }
 
     .header img{
-       height: 250px;
-       width:300px;
+       height: 125px;
+       width:150px;
       
     }
 

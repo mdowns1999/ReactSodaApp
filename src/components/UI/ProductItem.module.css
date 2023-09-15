@@ -6,11 +6,13 @@
   border-radius: 5px;
 }
 
-.card:hover {
-  box-shadow: 0 4px 8px 0 #b5b5b5, 0 6px 20px 0 #b5b5b5;
-  transition: 0.25s;
-}
 
 .card img {
   height: 250px;
+  transition: width .5s, height .5s;
 }
+
+.card img:hover{
+  height:255px;
+}
+

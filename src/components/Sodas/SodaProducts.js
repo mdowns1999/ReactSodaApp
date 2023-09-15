@@ -56,7 +56,8 @@ const SodaProducts = (props) => {
       <section className={classes.pageBanner}>
         <h1>Products</h1>
       </section>
-      <section className={classes.sodas}>{sodaList}</section>
+      {/* <section className={classes.sodas}>{sodaList}</section> */}
+      <ul className={classes.products}></ul>
     </Fragment>
   );
 };

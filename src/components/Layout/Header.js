@@ -6,7 +6,7 @@ import Button from "../UI/Button";
 const Header = (props) => {
 
     return <header className={classes.header}>
-        <div><Button>
+        {/* <div><Button>
             <div className={classes.shopBtn}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -20,7 +20,7 @@ const Header = (props) => {
             </svg>
             <span>Shop</span>
             </div>
-            </Button></div>
+            </Button></div> */}
          <a href="#"><img src={require('../../images/sodaLogo.png')} alt="Poppin Soda Shop Logo"></img></a>
         <div><HeaderCartButton onClick={props.onShowCart}/></div>
     </header>
