@@ -2,7 +2,7 @@ import React from "react";
 import classes from "./ProductItem.module.css";
 
 const ProductItem = (props) => {
-  return <div className={classes.card}>{props.children}</div>;
+  return <li className={classes.item}>{props.children}</li>;
 };
 
 export default ProductItem;

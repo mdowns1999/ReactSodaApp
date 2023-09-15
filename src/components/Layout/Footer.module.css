@@ -16,17 +16,6 @@
     transition: 0.25s;
 }
 
-
-.instagram:hover{
-     background-color: var(--accentTwo, #ff9b42);
-     border-radius: 10px;
-}
-
-.facebook:hover{
-    background-color: var(--accentTwo, #ff9b42);
-    border-radius: 5px;
-}
-
 @media screen and (min-width: 700px) {
     .footer {
         flex-direction: row;

@@ -22,12 +22,11 @@ html{
   height:100%;
   font-size: 1em;
   font-family: 'Montserrat', sans-serif;
-  font-size: 20px;
 }
 
 
 main{
-  margin: 50px auto;
+  margin: 140px auto;
   max-width: 1200px;
 }
 
@@ -39,6 +38,11 @@ h1, h2 ,h3 ,h4, p, a, ul, li {
 
 h1, h2, h3, h4 {
   font-family: 'Source Sans 3', sans-serif;
+}
+
+a{
+  text-decoration: none;
+  color:black;
 }
 
 /* https://coolors.co/palettes/popular/restaurant 

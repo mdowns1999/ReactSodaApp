@@ -1,4 +1,4 @@
-.productBox {
+/* .productBox {
   display:block;
   text-decoration: none;
   color:black;
@@ -16,9 +16,14 @@
   width: 225px;
   height: 290px;
   
-}
+} */
+
 
 
 /* .card img:hover {
   height: 255px;
 } */
+
+.productBox:hover{
+  z-index: 20;
+}
