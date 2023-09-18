@@ -4,16 +4,16 @@
 
 .cartBtns{
     display: flex;
-    justify-content: end;
+    justify-content: center;
     gap: 30px;
 }
 
 .cartBtn{
   background-color:  var(--primaryColor, #f9dc66);
+  border: none;
   padding: 20px;
   cursor: pointer;
   font-weight: bold;
-  border: none;
   border-radius: 50px;
   width: 100px;
   transition: 0.25s;
@@ -22,3 +22,10 @@
 .cartBtn:hover{
     background-color: var(--accentOne, #f9dc66);
 }
+
+@media screen and (min-width: 768px) {
+    .cartBtns{
+        justify-content: end;
+    }
+    
+  }

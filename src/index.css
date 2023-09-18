@@ -45,5 +45,21 @@ a{
   color:black;
 }
 
+
+.deleteIcon{
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.deleteIcon:hover{
+  color:var(--accentTwo, #ff9b42);
+
+}
+
+.deleteIcon:active{
+  color:var(--accentOne, white);
+
+}
+
 /* https://coolors.co/palettes/popular/restaurant 
 https://coolors.co/palettes/popular/drinks*/

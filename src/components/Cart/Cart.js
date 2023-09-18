@@ -12,7 +12,7 @@ const Cart = (props) => {
   return (
     <Modal>
       <div className={classes.cart}>
-        <h1>Your Shopping Cart</h1>
+        <h1>Shopping Cart</h1>
         {cartItems}
         <div className={classes.cartBtns}>
           <button className={classes.cartBtn} onClick={props.onHideCart}>

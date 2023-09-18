@@ -1,14 +1,67 @@
 import React from "react";
-import classes from './CartItem.module.css';
+import classes from "./CartItem.module.css";
 
 const CartItem = (props) => {
+  /* <img src={props.image} alt={props.description}></img> */
+
+  const removeItemHandler = () => {};
+
+  const addItemHandler = () => {};
+
+  const laptopView = (
+    <section className={classes.laptop}>
+      <div>Dr long drink Soda</div>
+      <div className={classes.price}>
+        <span>$6.00</span>/item
+      </div>
+      <div className={classes.actions}>
+        <button onClick={removeItemHandler} className={classes.actionBtn}>-</button>
+        <span>10</span>
+        <button onClick={addItemHandler} className={classes.actionBtn}>+</button>
+      </div>
+      <div>
+        Total: $<span>20.00</span>
+      </div>
+    </section>
+  );
+
+  const mobileView = (
+    <section className={classes.mobile}>
+      <div className={classes.mobileDesc}>
+        <div>Dr long drink Soda</div>
+        <div className={classes.totalPrice}>
+          <span>$60.00</span>
+        </div>
+      </div>
+
+      <div className={classes.mobileActionBox}>
+      <div className={classes.mobileActions}>
+        <button onClick={removeItemHandler} className={classes.actionBtn}>-</button>
+        <span>10</span>
+        <button onClick={addItemHandler} className={classes.actionBtn}>+</button>
+      </div>
+      <i class="material-icons deleteIcon">delete</i>
+      </div>
+    </section>
+  );
+
   return (
-   <li>Item</li>
+    <li className={classes.item}>
+      <div className={classes.imageBox}>
+        <img
+          src={require("../../images/blank.png")}
+          alt={props.description}
+          className={classes.itemImg}
+        ></img>
+      </div>
+      {laptopView}
+      {mobileView}
+      <div className={classes.deleteBtn}><i class="material-icons deleteIcon">delete</i></div>
+    </li>
   );
 };
 
 export default CartItem;
-
 
 // import classes from './CartItem.module.css';
 // import { useDispatch } from 'react-redux';
@@ -29,7 +82,6 @@ export default CartItem;
 //   const removeItemHandler = () => {
 //     dispatch(cartActions.removeItemFromCart(id))
 //   }
-
 
 //   return (
 //     <li className={classes.item}>
