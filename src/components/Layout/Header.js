@@ -1,7 +1,7 @@
 import React from "react";
 import classes from './Header.module.css'
 import HeaderCartButton from "./HeaderCartButton";
-import Button from "../UI/Button";
+
 
 const Header = (props) => {
 
@@ -21,7 +21,7 @@ const Header = (props) => {
             <span>Shop</span>
             </div>
             </Button></div> */}
-         <a href="#"><img src={require('../../images/sodaLogo.png')} alt="Poppin Soda Shop Logo"></img></a>
+         <a href="www.google.com"><img src={require('../../images/sodaLogo.png')} alt="Poppin Soda Shop Logo"></img></a>
         <div><HeaderCartButton onClick={props.onShowCart}/></div>
     </header>
 

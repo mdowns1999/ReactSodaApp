@@ -3,6 +3,7 @@ import Footer from './components/Layout/Footer';
 import SodaProducts from './components/Sodas/SodaProducts';
 import { Fragment, useState } from 'react';
 import Cart from './components/Cart/Cart';
+// import Home from './components/Home/Home';
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
       <Header onShowCart={showCartHandler}/>
     <main>
       <SodaProducts/>
+      {/* <Home/> */}
     </main>
     <Footer/>
     </Fragment>

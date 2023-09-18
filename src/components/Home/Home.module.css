@@ -1,0 +1,10 @@
+.homeSectionOne, .homeSectionTwo{
+    display: flex;
+    margin: 100px 10px;
+    padding: 10px;
+    gap: 5em;
+}
+
+.homeSectionOne{
+    background-color: aqua;
+}
