@@ -4,7 +4,7 @@ import SodaProducts from "./components/Sodas/SodaProducts";
 import { useState } from "react";
 import Cart from "./components/Cart/Cart";
 import CartProvider from "./store/CartProvider";
-// import Home from './components/Home/Home';
+import Home from './components/Home/Home';
 
 function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
@@ -22,8 +22,8 @@ function App() {
       {cartIsShown && <Cart onClose={hideCartHandler} />}
       <Header onShowCart={showCartHandler} />
       <main>
-        <SodaProducts />
-        {/* <Home/> */}
+        {/* <SodaProducts /> */}
+        <Home/>
       </main>
       <Footer />
     </CartProvider>

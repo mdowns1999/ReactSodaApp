@@ -9,6 +9,7 @@ const Home = () => {
     <Fragment>
       <SlideShow/>
       <div className={classes.home}>
+        <div className={classes.homeWrapper}>
       <section className={classes.homeSectionOne}>
         <div>
           <h1>About Us</h1>
@@ -26,6 +27,7 @@ const Home = () => {
           alt="Poppin Soda Shop Logo"
         ></img>
       </section>
+      </div>
 
       <section className={classes.homeSectionTwo}>
         <img
