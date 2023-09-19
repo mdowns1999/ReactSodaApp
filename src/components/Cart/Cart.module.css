@@ -2,10 +2,14 @@
     text-align: center;
 }
 
+.cartBottom{
+    display: flex;
+    justify-content: space-between;
+}
+
 .cartBtns{
     display: flex;
-    justify-content: center;
-    gap: 30px;
+    gap:30px;
 }
 
 .cartBtn{
@@ -17,6 +21,7 @@
   border-radius: 50px;
   width: 100px;
   transition: 0.25s;
+
 }
 
 .cartBtn:hover{
@@ -24,8 +29,6 @@
 }
 
 @media screen and (min-width: 768px) {
-    .cartBtns{
-        justify-content: end;
-    }
+
     
   }

@@ -4,23 +4,23 @@ import classes from "./CartItem.module.css";
 const CartItem = (props) => {
   /* <img src={props.image} alt={props.description}></img> */
 
-  const removeItemHandler = () => {};
+  const removeItemHandler = (id) => {};
 
   const addItemHandler = () => {};
 
   const laptopView = (
     <section className={classes.laptop}>
-      <div>Dr long drink Soda</div>
+      <div>{props.name}</div>
       <div className={classes.price}>
-        <span>$6.00</span>/item
+        <span>{props.price}</span>/item
       </div>
       <div className={classes.actions}>
         <button onClick={removeItemHandler} className={classes.actionBtn}>-</button>
-        <span>10</span>
+        <span>{props.amount}</span>
         <button onClick={addItemHandler} className={classes.actionBtn}>+</button>
       </div>
       <div>
-        Total: $<span>20.00</span>
+        Total: $<span>{(props.amount * props.price).toFixed(2)}</span>
       </div>
     </section>
   );
