@@ -51,7 +51,7 @@ a{
 }
 
 .deleteIcon:hover{
-  color:var(--accentTwo, #ff9b42);
+  color:rgb(192, 1, 1);
 
 }
 
