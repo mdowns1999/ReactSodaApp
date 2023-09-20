@@ -1,0 +1,10 @@
+.caption{
+    position: absolute;
+    right: 100px;
+    top: 250px;
+    font-size: 38px;
+    padding: 55px;
+    border: solid 1px white;
+    color:white;
+    background-color: bisque;
+}
