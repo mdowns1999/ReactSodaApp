@@ -10,7 +10,7 @@
 
 .modal {
   position: fixed;
-  top: 2vh;
+  top: 10vh;
   left: 5%;
   width: 90%;
   background-color: var(--secondaryColor, #d9e5d6);
@@ -36,21 +36,21 @@
 
 @media screen and (min-width: 768px) {
   .modal{
-      width:98%;
-      left: 2%;
+      width:70%;
+      left: 15%;
   }
 }
 
-@media screen and (min-width: 1000px) {
+/* @media screen and (min-width: 1000px) {
   .modal{
       width:78%;
       left:10%;
   }
-}
+} */
 
 @media screen and (min-width: 1200px) {
   .modal{
       width:60%;
-      left:15%;
+      left:20%;
   }
 }

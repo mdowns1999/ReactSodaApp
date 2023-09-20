@@ -9,21 +9,32 @@ const Cart = (props) => {
 
   const totalAmount = `${cartCtx.totalAmount.toFixed(2)}`;
 
+  const removeItemHandler = (id) => {};
 
-  const cartItems = (
-    <ul>
-      {cartCtx.items.map((item) => (
-        <CartItem
-        key={item.id}
-        name={item.name}
-        price={item.price}
-        amount={item.amount}
+  const addItemHandler = (item) => {};
 
-        />
-      ))}
-      {/* <CartItem/> */}
-    </ul>
-  );
+  let cartItems;
+
+  if(cartCtx.items.length === 0){
+    cartItems = <p>You have no Items in the Cart</p>
+  }else{
+    cartItems = (
+      <ul className=
+      {classes['cart-items']}>
+        {cartCtx.items.map((item) => (
+          <CartItem
+          key={item.id}
+          name={item.name}
+          price={item.price}
+          amount={item.amount}
+          onRemove={removeItemHandler.bind(null, item.id)}
+          onAdd={addItemHandler.bind(null, item)}
+          />
+        ))}
+      </ul>
+    );
+  }
+
   return (
     <Modal onClose={props.onClose}>
       <div className={classes.cart}>
