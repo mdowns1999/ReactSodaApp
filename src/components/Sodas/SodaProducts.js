@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import SodaItem from "./SodaItem";
 import classes from "./SodaProducts.module.css";
+import SodaDetail from "./SodaDetail";
 
 const SodaProducts = (props) => {
   const DUMMY_SODAS = [
@@ -62,12 +63,23 @@ const SodaProducts = (props) => {
     
   // />
   ));
+
+  const itemOfTheMonth = {
+    id: "d1",
+    name: "Sprite Mango",
+    amount: 1,
+    price: 5.00,
+    image: require("../../images/blank.png"),
+}
+
   return (
     <Fragment>
+      <section className={classes.productOfMonth}>
+        <SodaDetail item={itemOfTheMonth} itemOfMonth={false}/>
+      </section>
       <section className={classes.pageBanner}>
         <h1>Products</h1>
       </section>
-      {/* <section className={classes.sodas}>{sodaList}</section> */}
       <ul className={classes.products}>{sodaList}</ul>
     </Fragment>
   );

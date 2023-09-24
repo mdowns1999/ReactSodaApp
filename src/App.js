@@ -5,6 +5,7 @@ import { useState } from "react";
 import Cart from "./components/Cart/Cart";
 import CartProvider from "./store/CartProvider";
 import Home from './components/Home/Home';
+
 // https://stackoverflow.com/questions/59076687/how-can-i-deploy-react-app-on-github-pages
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
       <main>
         <SodaProducts />
         {/* <Home/> */}
+
       </main>
       <Footer />
     </CartProvider>

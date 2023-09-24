@@ -1,0 +1,39 @@
+.productOfMonthBanner{
+    background-color: aquamarine;
+    padding:50px;
+    text-align: center;
+}
+
+.productOfMonthBanner h1 {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    max-width: 300px;
+    margin: 0 auto;
+    padding:20px;
+}
+
+.productDetailSection{
+    display:grid;
+    grid-template-columns: 1fr;
+    gap: 1em;
+    padding: 10px;
+    max-width: 1200px;
+    margin: 2em auto;
+    justify-items: center;
+}
+
+.productDetailSection{
+    max-width: 70%;
+}
+
+.details h2{
+    text-align: center;
+    padding:10px;
+}
+
+@media screen and (min-width: 700px) {
+    .productDetailSection{
+        grid-template-columns: 1fr 1fr;
+        gap: 4em;
+    }
+}
