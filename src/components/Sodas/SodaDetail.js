@@ -24,9 +24,7 @@ const SodaDetail = (props) => {
   const addtoCartHandler = (event) => {
     event.preventDefault();
     const size = sizeIndicator([size8Ref, size16Ref, size32Ref]);
-    console.log(size);
   
-    
     cartCtx.addItem({
       id: props.item.id + size,
       name: props.item.name,
@@ -34,6 +32,9 @@ const SodaDetail = (props) => {
       price: props.item.price,
       size: size
     });
+
+    size8Ref.current.checked = size16Ref.current.checked = size32Ref.current.checked = false;
+    quantityRef.current.value = 1;
     //Notify User that it was successfully added
   };
 

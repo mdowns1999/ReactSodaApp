@@ -13,7 +13,7 @@ const CartItem = (props) => {
           className={classes.itemImg}
         ></img>
         <div className={classes.summary}>
-          <h2>{props.name} ({props.size}OZ)</h2>
+          <h2>{props.name} ({props.size} OZ)</h2>
           
         </div>
       </div>
