@@ -13,10 +13,11 @@ const CartItem = (props) => {
           className={classes.itemImg}
         ></img>
         <div className={classes.summary}>
-          <h2>{props.name}</h2>
-          <span className={classes.price}>{price}</span>
+          <h2>{props.name} ({props.size}OZ)</h2>
+          
         </div>
       </div>
+      <span className={classes.price}>{price}</span>
       <div className={classes.actions}>
         <div>        <button onClick={props.onRemove}>−</button>
         <span className={classes.amount}>{props.amount}</span>

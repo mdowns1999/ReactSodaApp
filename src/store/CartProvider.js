@@ -20,6 +20,7 @@ const cartReducer = (state, action) => {
     let updatedItems;
 
     if (exsitingCartItem) {
+  
       const updatedItem = {
         ...exsitingCartItem,
         amount: exsitingCartItem.amount + action.item.amount,
@@ -81,7 +82,7 @@ const CartProvider = (props) => {
   );
 
   const addItemToCartHandler = (item) => {
-    console.log(item);
+    console.log(item.size);
     dispatchCartAction({
       type: "ADD",
       item: item,

@@ -1,3 +1,4 @@
+/* https://stackoverflow.com/questions/16242980/making-radio-buttons-look-like-buttons-instead */
 .productOfMonthBanner{
     background-color: aquamarine;
     padding:50px;
@@ -23,15 +24,87 @@
 }
 
 .productDetailSection{
-    max-width: 70%;
+    padding:20px;
 }
 
-.details h2{
-    text-align: center;
-    padding:10px;
+
+.details h2, .details p{
+margin: 10px 0;
 }
 
-@media screen and (min-width: 700px) {
+.details button {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding:1em;
+    margin: 10px 0;
+    width:100%;
+}
+
+.quantityBox{
+display:flex;
+justify-content: space-between;
+align-items: center;
+padding: 5px;
+}
+
+.quantityBox input{
+padding:0.5em;
+font-size: 16px;
+}
+
+
+.sizeBox{
+    display:flex;
+    justify-content: space-evenly;
+    margin: 20px 0;
+}
+
+.sizeBox div{
+    position: relative;
+    width: 100px;
+    height: 40px;
+    text-align:center;
+    margin: 10px;
+}
+
+
+.sizeBox input, .sizeBox label{
+display: block;
+position: absolute;
+border: 1px solid black;
+border-radius: 10px;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+}
+
+.sizeBox input[type="radio"]{
+    opacity: 0.01;
+    z-index: 100;
+}
+
+.sizeBox input[type="radio"]:checked+label, .Checked+label{
+    background-color: aqua;
+}
+
+.sizeBox label {
+
+    padding: 5px;
+    border: 1px solid #e83c3c;
+    cursor: pointer;
+    z-index: 90;
+  }
+
+  .sizeBox div:hover {
+    background: #DDD;
+    border-radius: 10px;
+  }
+  
+
+
+
+@media screen and (min-width: 768px) {
     .productDetailSection{
         grid-template-columns: 1fr 1fr;
         gap: 4em;

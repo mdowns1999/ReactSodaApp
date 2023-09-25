@@ -36,8 +36,9 @@
 
 @media screen and (min-width: 768px) {
   .modal{
-      width:70%;
-      left: 15%;
+      width:90%;
+      left: 5%;
+      padding: 0.5rem;
   }
 }
 
@@ -52,5 +53,6 @@
   .modal{
       width:60%;
       left:20%;
+      padding: 1rem;
   }
 }
