@@ -46,6 +46,7 @@
     cursor:pointer;
     transition: height .5s ease-in, width .5s ease-in;
     overflow: hidden;
+    border-radius: 20px;
 }
 
 .products li a:hover {

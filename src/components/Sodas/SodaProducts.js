@@ -75,7 +75,7 @@ const SodaProducts = (props) => {
   return (
     <Fragment>
       <section className={classes.productOfMonth}>
-        <SodaDetail item={itemOfTheMonth} itemOfMonth={false}/>
+        <SodaDetail item={itemOfTheMonth} itemOfMonth={true}/>
       </section>
       <section className={classes.pageBanner}>
         <h1>Products</h1>
