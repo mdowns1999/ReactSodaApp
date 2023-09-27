@@ -6,6 +6,7 @@ import Cart from "./components/Cart/Cart";
 import CartProvider from "./store/CartProvider";
 import Home from './components/Home/Home';
 import Navigation from "./components/Layout/Navigation";
+import CustomSodas from "./components/Sodas/CustomSoda";
 
 // https://stackoverflow.com/questions/59076687/how-can-i-deploy-react-app-on-github-pages
 
@@ -25,7 +26,8 @@ function App() {
       {cartIsShown && <Cart onClose={hideCartHandler} />}
       <Header onShowCart={showCartHandler} />
       <main>
-      <SodaProducts />
+        <CustomSodas/>
+      {/* <SodaProducts /> */}
         {/* <Home/> */}
 
       </main>
