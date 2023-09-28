@@ -1,0 +1,66 @@
+form h2{
+    text-align: center;
+}
+.customForm ul{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    margin: 1em 0;
+}
+
+.customForm ul li{
+    list-style: none;
+    font-size: 16px;
+}
+
+.checkBoxBtn
+{
+    background-color: gainsboro;
+    width: 115px;
+    height: auto;
+    padding:15px;
+    margin: 1em;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.hidden {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+  }
+  
+  input[type=checkbox]+label {
+    color: #797979;
+    font-style: italic;
+  }
+  
+  input[type=checkbox]:checked+label {
+    color: black;
+    font-style: normal;
+  }
+
+
+  @media screen and (min-width: 768px) {
+    .customForm ul{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .checkBoxBtn
+{
+    width: 150px;
+
+}
+}
+
+@media screen and (min-width: 1200px) {
+    .customForm ul{
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .checkBoxBtn
+{
+    width: 160px;
+
+}
+}
