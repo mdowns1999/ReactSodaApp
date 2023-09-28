@@ -1,132 +1,110 @@
 import { useState } from "react";
-import classes from './CustomSodaForm.module.css'
+import classes from "./CustomSodaForm.module.css";
+import CheckBox from "../UI/CheckBox";
+import Button from "../UI/Button";
+import { useEffect } from "react";
 
-// const sodaFlavors = [
-//   {
-//     name: "Pepsi",
-//     price: 1.2
-//   },
-//   {
-//     name: "Sprite",
-//     price: 2.0
-//   },
-//   {
-//     name: "Dr.Pepper",
-//     price: 2.5
-//   },
-//   {
-//     name: "Coke",
-//     price: 3.0
-//   },
-//   {
-//     name: "Rootbeer",
-//     price: 3.5
-//   },
-//   {
-//     name: "Fanta",
-//     price: 3.0
-//   }
-// ];
+const sodaFlavors = [
+  {
+    id: "f1",
+    name: "Pepsi",
+    price: 2.0,
+  },
+  {
+    id: "f2",
+    name: "Sprite",
+    price: 2.0,
+  },
+  {
+    id: "f3",
+    name: "Dr.Pepper",
+    price: 2.0,
+  },
+  {
+    id: "f4",
+    name: "Coke",
+    price: 2.0,
+  },
+  {
+    id: "f5",
+    name: "Rootbeer",
+    price: 2.0,
+  },
+  {
+    id: "f6",
+    name: "Fanta",
+    price: 2.0,
+  },
+];
 
 const sodaSyrups = [
-    {
-      name: "Capsicum",
-      price: 1.2
-    },
-    {
-      name: "Paneer",
-      price: 2.0
-    },
-    {
-      name: "Red Paprika",
-      price: 2.5
-    },
-    {
-      name: "Raspberry",
-      price: 3.0
-    },
-    {
-      name: "Extra Cheese",
-      price: 3.5
-    },
-    {
-      name: "Baby Corns",
-      price: 3.0
-    },
-    {
-      name: "Mushroom",
-      price: 2.0
-    }
-  ];
-  //https://www.freecodecamp.org/news/how-to-work-with-multiple-checkboxes-in-react/
+  {
+    id: "s1",
+    name: "Capsicum",
+    price: 10.0,
+  },
+  {
+    id: "s2",
+    name: "Paneer",
+    price: 10.0,
+  },
+  {
+    id: "s3",
+    name: "Red Paprika",
+    price: 10.0,
+  },
+  {
+    id: "s4",
+    name: "Raspberry",
+    price: 10.0,
+  },
+  {
+    id: "s5",
+    name: "Extra Cheese",
+    price: 10.0,
+  },
+  {
+    id: "s6",
+    name: "Baby Corns",
+    price: 10.0,
+  },
+  {
+    id: "s7",
+    name: "Mushroom",
+    price: 10.0,
+  },
+];
+//https://www.freecodecamp.org/news/how-to-work-with-multiple-checkboxes-in-react/
 const CustomSodaForm = () => {
-    //Fill the check boxes to false since none will need to be checked right away
-    const [checkedState, setCheckedState] = useState(
-        new Array(sodaSyrups.length).fill(false)
-    );
-    const[totalCost, setPrice] = useState(0);
+  const [totalCost, setPrice] = useState(0);
+  const [SyrupTotal, setSyrupTotal] = useState(0);
+  const [sodaTotal, setSodaTotal] = useState(0);
 
-    const handleOnChange = (pos) =>{
-        //Update the array with our new checked box
-        const updatedCheckedState = checkedState.map((item, index) => 
-        index === pos ? !item : item);
-        setCheckedState(updatedCheckedState);
+  useEffect(() => {
+    setPrice(SyrupTotal + sodaTotal);
+  },[totalCost, SyrupTotal, sodaTotal])
 
-        //Calculate total price for toppings
-        let totalPrice = updatedCheckedState.reduce((total, currentState, index) => {
-            if(currentState === true){
-                return total + sodaSyrups[index].price;
-            }
-            return total;
-        }, 0)
-        setPrice(totalPrice);
-    }
-    return <form className={classes.customForm}>
-      {/* <div>
-      <h2>Soda Flavors:</h2>
-    <ul>
-        {sodaFlavors.map(({name, price}, index) => (
-            <li key={index}>
-                <div className={classes.checkBoxBtn}>
-                    <input
-                    className={classes.hidden}
-                    type="checkbox"
-                    id={`custom-check-box-s${index}`}
-                    name={name}
-                    value={name}
-                    onChange={() => handleOnChange(index)}/>
-                    <label htmlFor={`custom-check-box-s${index}`}>{name}</label>
-                </div>
-            </li>
-        ))}
-    </ul>
-      </div> */}
-
+  return (
+    <form className={classes.customForm}>
       <div>
-      <h2>Syrup Flavors:</h2>
-    <ul>
-        {sodaSyrups.map(({name, price}, index) => (
-            <li key={index}>
-                <div className={classes.checkBoxBtn}>
-                    <input
-                    className={classes.hidden}
-                    type="checkbox"
-                    id={`custom-check-box-${index}`}
-                    name={name}
-                    value={name}
-                    onChange={() => handleOnChange(index)}/>
-                    <label htmlFor={`custom-check-box-${index}`}>{name}</label>
-                </div>
-            </li>
-        ))}
-    </ul>
+        <h2>Syrup Flavors:</h2>
+        <ul>
+          <CheckBox list={sodaFlavors} setPrice={setSodaTotal} total={totalCost}/>
+        </ul>
       </div>
-    <p>Total Price: {totalCost}</p>
+      <div>
+        <h2>Syrup Flavors:</h2>
+        <ul>
+          <CheckBox list={sodaSyrups} setPrice={setSyrupTotal} total={totalCost}/>
+        </ul>
+      </div>
+      <p>Total Price: {totalCost}</p>
 
-
-    <button>Submit</button>
-
-  </form>
-}
+      <div className={classes.btnBox}>
+        <Button>Add to Cart</Button>
+      </div>
+    </form>
+  );
+};
 
 export default CustomSodaForm;

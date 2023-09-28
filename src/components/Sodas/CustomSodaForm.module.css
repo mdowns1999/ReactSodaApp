@@ -13,7 +13,12 @@ form h2{
     font-size: 16px;
 }
 
-.checkBoxBtn
+.btnBox{
+    margin: 0 auto;
+max-width: 60%;
+}
+
+/* .checkBoxBtn
 {
     background-color: gainsboro;
     width: 115px;
@@ -38,7 +43,7 @@ form h2{
   input[type=checkbox]:checked+label {
     color: black;
     font-style: normal;
-  }
+  } */
 
 
   @media screen and (min-width: 768px) {
@@ -51,6 +56,12 @@ form h2{
     width: 150px;
 
 }
+
+.btnBox{
+    margin: 0 auto;
+max-width: 45%;
+}
+
 }
 
 @media screen and (min-width: 1200px) {

@@ -2,6 +2,7 @@ import React, { Fragment, useRef } from "react";
 import classes from "./SodaDetail.module.css";
 import { useContext } from "react";
 import CartContext from "../../store/cart-context";
+import Button from "../UI/Button";
 
 //THis function will go through each radio button ref and see which was checked.  If for some reason nothing was clicked, the smallest size is returned
 const sizeIndicator = (inputIsCheckedArray) => {
@@ -104,7 +105,8 @@ const SodaDetail = (props) => {
               <label htmlFor="radio_32">32 oz</label>
               </div>
           </div>
-          <button>Add to Cart</button>
+          
+          <Button>Add to Cart</Button>
         </form>
       </section>
     </Fragment>
