@@ -4,18 +4,18 @@ import { useContext } from "react";
 import CartContext from "../../store/cart-context";
 import Button from "../UI/Button";
 import RadioButton from "../UI/RadioButton";
-import CheckBox from "../UI/CheckBox";
 
 const SodaDetail = (props) => {
   const cartCtx = useContext(CartContext);
   const quantityRef = useRef();
   const [size, setSize] = useState("8");
 
-
   const addtoCartHandler = (event) => {
     event.preventDefault();
 
-    console.log(size)
+    console.log(event.target[3].checked);
+
+    console.log(size);
     cartCtx.addItem({
       id: props.item.id + size,
       name: props.item.name,
@@ -25,7 +25,11 @@ const SodaDetail = (props) => {
     });
 
     quantityRef.current.value = "";
-    
+    for (let i = 0; i < event.target.length; i++) {
+      if (event.target[i].checked) {
+        event.target[i].checked = null;
+      }
+    }
   };
 
   const price = `$${props.item.price.toFixed(2)}`;
@@ -62,9 +66,9 @@ const SodaDetail = (props) => {
           </div>
 
           <div className={classes.sizeBox}>
-            <RadioButton id={"radio_8"} value={"8"} setSize={setSize}/>
-            <RadioButton id={"radio_16"} value={"16"} setSize={setSize}/>
-            <RadioButton id={"radio_32"} value={"32"} setSize={setSize}/>
+            <RadioButton id={"radio_8"} value={"8"} setSize={setSize} />
+            <RadioButton id={"radio_16"} value={"16"} setSize={setSize} />
+            <RadioButton id={"radio_32"} value={"32"} setSize={setSize} />
           </div>
 
           <Button>Add to Cart</Button>
@@ -75,41 +79,3 @@ const SodaDetail = (props) => {
 };
 
 export default SodaDetail;
-
-{
-  /* <div className={classes.sizeBox}>
-<div>
-  <input
-  ref={size8Ref}
-    type="radio"
-    name="select"
-    value="8"
-    id="radio_8"
-    required
-  ></input>
-  <label htmlFor="radio_8">8 oz</label>
-  </div>
-  <div>
-  <input
-  ref={size16Ref}
-    type="radio"
-    name="select"
-    value="16"
-    id="radio_16"
-    required
-  ></input>
-  <label htmlFor="radio_16">16 oz</label>
-  </div>
-  <div>
-  <input
-    ref={size32Ref}
-    type="radio"
-    name="select"
-    value="32"
-    id="radio_32"
-    required
-  ></input>
-  <label htmlFor="radio_32">32 oz</label>
-  </div>
-</div> */
-}

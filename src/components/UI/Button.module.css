@@ -10,7 +10,11 @@
   transition: 0.25s;
 }
 
-.button:hover,
-.button:active {
+.button:hover {
 background-color: var(--accentOne, #f9dc66);
+}
+
+
+.button:active{
+  background-color: var(--accentTwo, #ff9b42);
 }
