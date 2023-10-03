@@ -11,7 +11,11 @@ const SodaProducts = (props) => {
       description: "Just normal Sprites",
       price: 2.0,
       imgRoute: require("../../images/blank.png"),
-      amount: 1
+      amount: 1,
+      ingredients:{
+        baseSoda: "RootBeer",
+        ingredients: ["Stuff 1", "Stuff 2"]
+      }
     },
     {
       id: "s2",
@@ -19,7 +23,11 @@ const SodaProducts = (props) => {
       description: "Just normal Pepsi",
       price: 2.5,
       imgRoute: require("../../images/blank.png"),
-      amount: 1
+      amount: 1,
+      ingredients:{
+        baseSoda: "RootBeer",
+        ingredients: ["Stuff 1", "Stuff 2"]
+      }
     },
     {
       id: "s3",
@@ -27,7 +35,11 @@ const SodaProducts = (props) => {
       description: "A white Girl drink",
       price: 12.99,
       imgRoute: require("../../images/blank.png"),
-      amount: 1
+      amount: 1,
+      ingredients:{
+        baseSoda: "RootBeer",
+        ingredients: ["Stuff 1", "Stuff 2"]
+      }
     },
     {
       id: "s4",
@@ -35,7 +47,11 @@ const SodaProducts = (props) => {
       description: "Its Diet Pepsi",
       price: 2.5,
       imgRoute: require("../../images/blank.png"),
-      amount: 1
+      amount: 1,
+      ingredients:{
+        baseSoda: "RootBeer",
+        ingredients: ["Stuff 1", "Stuff 2"]
+      }
     },
     {
       id: "s5",
@@ -43,7 +59,11 @@ const SodaProducts = (props) => {
       description: "Rootbeer.  Yup.",
       price: 12.99,
       imgRoute: require("../../images/blank.png"),
-      amount: 1
+      amount: 1,
+      ingredients:{
+        baseSoda: "RootBeer",
+        ingredients: ["Stuff 1", "Stuff 2"]
+      }
     },
   ];
 

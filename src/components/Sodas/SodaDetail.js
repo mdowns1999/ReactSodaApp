@@ -3,7 +3,8 @@ import classes from "./SodaDetail.module.css";
 import { useContext } from "react";
 import CartContext from "../../store/cart-context";
 import Button from "../UI/Button";
-import RadioButton from "../UI/RadioButton";
+import SizeSelect from "./SizeSelect";
+import QuantitySelect from "./QuantitySelect";
 
 const SodaDetail = (props) => {
   const cartCtx = useContext(CartContext);
@@ -47,25 +48,10 @@ const SodaDetail = (props) => {
             this drink. and a lot of random text that describes this drink. and
             a lot of random text that describes this drink.
           </p>
-          <div className={classes.quantityBox}>
-            <label htmlFor="quantity" type="number">
-              Quantity:
-            </label>
-            <input
-              ref={quantityRef}
-              type="number"
-              id="quantity"
-              name="quantity"
-              min="1"
-              max="20"
-              required
-            ></input>
-          </div>
+          <QuantitySelect quantityRef={quantityRef}/>
 
           <div className={classes.sizeBox}>
-            <RadioButton id={"radio_8"} value={"8"} setSelectedValue={setSize} label={"8 oz"}/>
-            <RadioButton id={"radio_16"} value={"16"} setSelectedValue={setSize} label={"16 oz"}/>
-            <RadioButton id={"radio_32"} value={"32"} setSelectedValue={setSize}  label={"32 oz"}/>
+            <SizeSelect setSize={setSize}/>
           </div>
 
           <Button>Add to Cart</Button>
