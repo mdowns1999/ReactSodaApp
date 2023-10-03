@@ -13,9 +13,6 @@ const SodaDetail = (props) => {
   const addtoCartHandler = (event) => {
     event.preventDefault();
 
-    console.log(event.target[3].checked);
-
-    console.log(size);
     cartCtx.addItem({
       id: props.item.id + size,
       name: props.item.name,
@@ -66,9 +63,9 @@ const SodaDetail = (props) => {
           </div>
 
           <div className={classes.sizeBox}>
-            <RadioButton id={"radio_8"} value={"8"} setSize={setSize} />
-            <RadioButton id={"radio_16"} value={"16"} setSize={setSize} />
-            <RadioButton id={"radio_32"} value={"32"} setSize={setSize} />
+            <RadioButton id={"radio_8"} value={"8"} setSelectedValue={setSize} label={"8 oz"}/>
+            <RadioButton id={"radio_16"} value={"16"} setSelectedValue={setSize} label={"16 oz"}/>
+            <RadioButton id={"radio_32"} value={"32"} setSelectedValue={setSize}  label={"32 oz"}/>
           </div>
 
           <Button>Add to Cart</Button>

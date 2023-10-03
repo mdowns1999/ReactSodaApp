@@ -1,14 +1,16 @@
+import classes from './RadioButton.module.css';
+
 const RadioButton = (props) => {
 
     const handleRadioChange = (event) => {
-        props.setSize(event.target.value);
+        props.setTotalValue(event.target.value);
     }
 
       
   return (
-    <div>
+    <div className={classes.radio}>
       <input type="radio" name="select" value={props.value} id={props.id} onChange={handleRadioChange}required></input>
-      <label htmlFor={props.id}>{props.value} oz</label>
+      <label htmlFor={props.id}>{props.label}</label>
     </div>
   );
 };

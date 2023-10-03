@@ -3,6 +3,9 @@ import classes from "./CustomSodaForm.module.css";
 import CheckBox from "../UI/CheckBox";
 import Button from "../UI/Button";
 import { useEffect } from "react";
+import RadioButton from "../UI/RadioButton";
+import { useContext } from "react";
+import CartContext from "../../store/cart-context";
 
 const sodaFlavors = [
   {
@@ -22,7 +25,7 @@ const sodaFlavors = [
   },
   {
     id: "f4",
-    name: "Coke",
+    name: "Diet Coke",
     price: 2.0,
   },
   {
@@ -79,23 +82,51 @@ const CustomSodaForm = () => {
   const [totalCost, setPrice] = useState(0);
   const [SyrupTotal, setSyrupTotal] = useState(0);
   const [sodaTotal, setSodaTotal] = useState(0);
+  const [SelectedSodaList, setSodaList] = useState([]);
+  const cartCtx = useContext(CartContext);
 
   useEffect(() => {
     setPrice(SyrupTotal + sodaTotal);
   },[totalCost, SyrupTotal, sodaTotal])
+
+  // const addtoCartHandler = (event) => {
+  //   event.preventDefault();
+
+  //   cartCtx.addItem({
+  //     id: props.item.id + size,
+  //     name: props.item.name,
+  //     amount: +quantityRef.current.value,
+  //     price: props.item.price,
+  //     size: 8,
+  //   });
+
+  //   // quantityRef.current.value = "";
+  //   // for (let i = 0; i < event.target.length; i++) {
+  //   //   if (event.target[i].checked) {
+  //   //     event.target[i].checked = null;
+  //   //   }
+  //   // }
+  // };
+
 
   return (
     <form className={classes.customForm}>
       <div>
         <h2>Syrup Flavors:</h2>
         <ul>
-          <CheckBox list={sodaFlavors} setPrice={setSodaTotal} total={totalCost}/>
+        {
+          sodaFlavors.map((flavor) => (
+            <RadioButton key={flavor.id} id={flavor.id} value={flavor.price} setTotalValue={setSodaTotal}  label={flavor.name} total={totalCost}/>
+          ))
+        }
+
         </ul>
       </div>
       <div>
         <h2>Syrup Flavors:</h2>
         <ul>
-          <CheckBox list={sodaSyrups} setPrice={setSyrupTotal} total={totalCost}/>
+          
+          <CheckBox list={sodaSyrups} setSelectedList={setSodaList} setTotalValue={setSyrupTotal}/>
         </ul>
       </div>
       <p>Total Price: {totalCost}</p>

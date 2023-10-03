@@ -26,7 +26,7 @@ function App() {
       {cartIsShown && <Cart onClose={hideCartHandler} />}
       <Header onShowCart={showCartHandler} />
       <main>
-        {/* <CustomSodas/> */}
+        <CustomSodas/>
       <SodaProducts />
         {/* <Home/> */}
 
