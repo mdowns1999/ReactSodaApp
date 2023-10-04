@@ -2,17 +2,18 @@ import React from "react";
 import classes from "./Header.module.css";
 import HeaderCartButton from "./HeaderCartButton";
 import Navigation from "./Navigation";
+import { Link } from "react-router-dom";
 
 const Header = (props) => {
   return (
     <header>
       <section className={classes.header}>
-        <a href="www.google.com">
+        <Link to="/">
           <img
             src={require("../../images/sodaLogo.png")}
             alt="Poppin Soda Shop Logo"
           ></img>
-        </a>
+        </Link>
         <Navigation/>
         <div>
           <HeaderCartButton onClick={props.onShowCart} />
