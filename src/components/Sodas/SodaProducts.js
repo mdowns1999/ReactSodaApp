@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import SodaItem from "./SodaItem";
 import classes from "./SodaProducts.module.css";
 import SodaDetail from "./SodaDetail";
+import Button from "../UI/Button";
 
 const SodaProducts = (props) => {
   const DUMMY_SODAS = [
@@ -92,10 +93,30 @@ const SodaProducts = (props) => {
     image: require("../../images/blank.png"),
 }
 
+const navigateToDrinkHandler = () => {
+  
+}
+
   return (
     <Fragment>
       <section className={classes.productOfMonth}>
-        <SodaDetail item={itemOfTheMonth} itemOfMonth={true}/>
+      <img
+          src={require("../../images/blank.png")}
+          alt="Custom Soda"
+        ></img>
+        <div>
+          <h1>Custom Drink</h1>
+          <p>
+            A bunch of example text. A bunch of example text. A bunch of example
+            text. A bunch of example text. A bunch of example text. A bunch of
+            example text. A bunch of example text. A bunch of example text. A
+            bunch of example text. A bunch of example text. A bunch of example
+            text. A bunch of example text. A bunch of example text. A bunch of
+            example text.
+          </p>
+          <Button onClick={navigateToDrinkHandler}>Order Drink</Button>
+        </div>
+        {/* <SodaDetail item={itemOfTheMonth} itemOfMonth={true}/> */}
       </section>
       <section className={classes.pageBanner}>
         <h1>Products</h1>
