@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useRef, useState } from "react";
+import React, { Fragment, useRef, useState } from "react";
 import classes from "./SodaDetail.module.css";
 import { useContext } from "react";
 import CartContext from "../../store/cart-context";
