@@ -45,8 +45,7 @@ useEffect(() => {
             childrenElem: <Caption caption="Caption 2" />
           },
           {
-            url: "https://i.imgur.com/t2a1zLi.jpg",
-            childrenElem: <Caption caption="Caption 3" />
+            url: "https://i.imgur.com/t2a1zLi.jpg"
           },
       ];
 

@@ -79,7 +79,7 @@ import { useLoaderData } from "react-router-dom";
 const SodaProducts = (props) => {
   const SODAS = useLoaderData();
   console.log(SODAS[0].imgRoute)
-  const sodaList = SODAS.map((item) => (
+  const sodaList = <>{SODAS.map((item) => (
     <SodaItem
       key={item.id}
       id={item.id}
@@ -89,7 +89,18 @@ const SodaProducts = (props) => {
       image={SODAS[0].imgRoute}
       amount={item.amount}
     />
-  ));
+  ))}
+  
+  <SodaItem
+      key={"custom-1"}
+      id={"custom"}
+      name={"Custom-Drink"}
+      description={"Description"}
+      price={0}
+      image={SODAS[0].imgRoute}
+      amount={1}
+    />
+  </>
 
 
   const navigateToDrinkHandler = () => {
@@ -120,7 +131,7 @@ const SodaProducts = (props) => {
       <section className={classes.pageBanner}>
         <h1>Products</h1>
       </section>
-      <ul className={classes.products}>{sodaList}</ul>
+      <ul className={classes.products}>{sodaList} </ul>
     </Fragment>
   );
 };
