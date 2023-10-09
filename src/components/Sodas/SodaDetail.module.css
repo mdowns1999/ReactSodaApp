@@ -73,12 +73,10 @@ font-size: 16px;
     .productDetailSection{
         grid-template-columns: 1fr 1fr;
         justify-content: center;
-        gap: 4em;
-        margin: 1em;
     }
 
     .productDetailSection img{
-        max-width: 60%;
+        max-width: 70%;
         justify-self: center;
     }
     

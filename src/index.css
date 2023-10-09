@@ -25,10 +25,9 @@ html{
 }
 
 
-/* main{
-  margin: 140px auto;
-  max-width: 1200px;
-} */
+main{
+  margin-bottom: 100px;
+}
 
 
 h1, h2 ,h3 ,h4, p, a, ul, li {

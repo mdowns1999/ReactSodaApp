@@ -1,7 +1,7 @@
 import React from "react";
 import ProductItem from "../UI/ProductItem";
 import classes from "./SodaItem.module.css";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 const getSodaImage = (imageName) =>{
   switch (imageName) {
@@ -13,12 +13,26 @@ const getSodaImage = (imageName) =>{
       return require("../../images/blank.png");
   }
 }
-const SodaItem = (props) => {
 
-  let image = getSodaImage(props.image)
+
+const SodaItem = (props) => {
+  let image = getSodaImage(props.image);
+
+ 
+    const scrollToTop = () => {
+      if(props.id === "custom"){
+        window.scrollTo(0, 0)
+      }else{
+        return
+      }
+      
+    }
+
+  
+
   return (
     <ProductItem>
-      <Link className={classes.productBox}>
+      <Link className={classes.productBox} to={props.id} onClick={scrollToTop}>
         <img src={image} alt={props.description}></img>
         <div className={classes.details}>
           <h2>{props.name}</h2>

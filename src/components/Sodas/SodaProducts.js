@@ -78,7 +78,6 @@ import { useLoaderData } from "react-router-dom";
 
 const SodaProducts = (props) => {
   const SODAS = useLoaderData();
-  console.log(SODAS[0].imgRoute)
   const sodaList = <>{SODAS.map((item) => (
     <SodaItem
       key={item.id}
