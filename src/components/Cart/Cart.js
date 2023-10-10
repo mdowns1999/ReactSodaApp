@@ -1,10 +1,16 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import CartContext from "../../store/cart-context";
 import Modal from "../UI/Modal";
 import classes from "./Cart.module.css";
 import CartItem from "./CartItem";
+import { Link, useLocation } from "react-router-dom";
+import { useState } from "react";
 
 const Cart = (props) => {
+  let location = useLocation();
+  const [toOrder, setOrderRoute] = useState("");
+  const [cartHasOrders, setCarthasOrders] = useState(false);
+  const btnClasses =`${cartHasOrders ? classes.cartBtn: classes.disabledBtn}`;
   const cartCtx = useContext(CartContext);
 
   const totalAmount = `${cartCtx.totalAmount.toFixed(2)}`;
@@ -22,7 +28,6 @@ const Cart = (props) => {
   };
 
   let cartItems;
-
   if(cartCtx.items.length === 0){
     cartItems = <p>You have no Items in the Cart</p>
   }else{
@@ -45,6 +50,16 @@ const Cart = (props) => {
     );
   }
 
+  useEffect(() => {
+    if(cartCtx.items.length === 0){
+      setOrderRoute(location);
+      setCarthasOrders(false);
+    }else{
+      setOrderRoute("order");
+      setCarthasOrders(true);
+    }
+  },[cartCtx.items.length, location])
+
   return (
     <Modal onClose={props.onClose}>
       <div className={classes.cart}>
@@ -58,7 +73,7 @@ const Cart = (props) => {
           <button className={classes.cartBtn} onClick={props.onClose}>
             Close
           </button>
-          <button className={classes.cartBtn}>Order</button>
+          <Link className={btnClasses} to={toOrder} onClick={cartHasOrders? props.onClose : null}>Order</Link>
         </div>
         </div>
       </div>

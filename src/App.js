@@ -10,6 +10,7 @@ import RootLayout from "./components/Layout/Root";
 import SodaDetail, {
   loader as sodaDetailLoader,
 } from "./components/Sodas/SodaDetail";
+import OrderConformation from "./components/Checkout/OrderConformation";
 
 // https://stackoverflow.com/questions/59076687/how-can-i-deploy-react-app-on-github-pages
 const router = createBrowserRouter([
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
         path: "products/custom",
         element: <CustomSodas />,
         loader: customSodaLoader,
+      },
+      {
+        path: "order",
+        element: <OrderConformation />
       },
     ],
   },

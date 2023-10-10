@@ -127,7 +127,7 @@ const SodaProducts = (props) => {
         </div>
         {/* <SodaDetail item={itemOfTheMonth} itemOfMonth={true}/> */}
       </section>
-      <section className={classes.pageBanner}>
+      <section className="pageBanner">
         <h1>Products</h1>
       </section>
       <ul className={classes.products}>{sodaList} </ul>
