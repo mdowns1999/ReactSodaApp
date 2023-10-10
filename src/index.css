@@ -76,5 +76,14 @@ a{
   display:none;
 }
 
+h1{
+  text-align: center;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  max-width: 300px;
+  margin: 3em auto;
+  padding:20px;
+}
+
 /* https://coolors.co/palettes/popular/restaurant 
 https://coolors.co/palettes/popular/drinks*/

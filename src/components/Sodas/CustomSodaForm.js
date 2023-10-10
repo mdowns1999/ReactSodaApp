@@ -59,7 +59,7 @@ const CustomSodaForm = (props) => {
   return (
     <form className={classes.customForm} onSubmit={addtoCartHandler}>
       <div>
-        <h2>Syrup Flavors:</h2>
+        <h1>Syrup Flavors:</h1>
         <ul>
           {props.sodaList.map((flavor) => (
             <RadioButton
@@ -75,7 +75,7 @@ const CustomSodaForm = (props) => {
         </ul>
       </div>
       <div>
-        <h2>Syrup Flavors:</h2>
+        <h1>Syrup Flavors:</h1>
         <ul>
           <CheckBox
             list={props.syrupList}
