@@ -1,93 +1,80 @@
 /* https://stackoverflow.com/questions/16242980/making-radio-buttons-look-like-buttons-instead */
-.productOfMonthBanner{
-    background-color: aquamarine;
-    padding:50px;
-    text-align: center;
+.productOfMonthBanner {
+  background-color: aquamarine;
+  padding: 50px;
+  text-align: center;
 }
 
 .productOfMonthBanner h1 {
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-    max-width: 300px;
-    margin: 0 auto;
-    padding:20px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-.productDetailSection{
-    display:grid;
-    grid-template-columns: 1fr;
-    gap: 1em;
-    max-width: 1200px;
-    margin: 1em 0;
-    justify-items: center;
+.productDetailSection {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1em;
+  max-width: 1200px;
+  margin: 1em 0;
+  justify-items: center;
 }
 
-.productDetailSection img{
-    max-width: 60%;
+.productDetailSection img {
+  max-width: 60%;
 }
 
-form{
-    max-width:85%;
-    padding:5px;
+form {
+  max-width: 85%;
+  padding: 5px;
 }
 
-.details h2, .details p{
-margin: 10px 0;
+.details h2,
+.details p {
+  margin: 10px 0;
 }
 
-/* .quantityBox{
-display:flex;
-justify-content: space-between;
-align-items: center;
-padding: 5px;
+.sizeBox {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin: 20px 0;
 }
-
-.quantityBox input{
-padding:0.5em;
-font-size: 16px;
-} */
-
-.sizeBox{
-    display:flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    margin: 20px 0;
-}
-
 
 @media screen and (min-width: 375px) {
-    form{
-        max-width:100%;
-    }
+  form {
+    max-width: 100%;
+  }
 
-    .productDetailSection{
-        margin: 1em;
-    }
+  .productDetailSection {
+    margin: 1em;
+  }
 
-    .productDetailSection img{
-        justify-self: center;
-    }
+  .productDetailSection img {
+    justify-self: center;
+  }
 }
 
 @media screen and (min-width: 768px) {
-    .productDetailSection{
-        grid-template-columns: 1fr 1fr;
-        justify-content: center;
-    }
+  .productDetailSection {
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+  }
 
-    .productDetailSection img{
-        max-width: 70%;
-        justify-self: center;
-    }
-    
-    form{
-        max-width:100%;
-    }
+  .productDetailSection img {
+    max-width: 70%;
+    justify-self: center;
+  }
+
+  form {
+    max-width: 100%;
+  }
 }
 
 @media screen and (min-width: 1400px) {
-    .productDetailSection{
-       margin: 2em auto;
-    }
-
+  .productDetailSection {
+    margin: 2em auto;
+  }
 }

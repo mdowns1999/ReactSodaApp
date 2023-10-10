@@ -1,9 +1,9 @@
 import React from "react";
 import ProductItem from "../UI/ProductItem";
 import classes from "./SodaItem.module.css";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const getSodaImage = (imageName) =>{
+const getSodaImage = (imageName) => {
   switch (imageName) {
     case "Cherry":
       return require("../../images/blank.png");
@@ -12,23 +12,18 @@ const getSodaImage = (imageName) =>{
     default:
       return require("../../images/blank.png");
   }
-}
-
+};
 
 const SodaItem = (props) => {
   let image = getSodaImage(props.image);
 
- 
-    const scrollToTop = () => {
-      if(props.id === "custom"){
-        window.scrollTo(0, 0)
-      }else{
-        return
-      }
-      
+  const scrollToTop = () => {
+    if (props.id === "custom") {
+      window.scrollTo(0, 0);
+    } else {
+      return;
     }
-
-  
+  };
 
   return (
     <ProductItem>
@@ -36,7 +31,10 @@ const SodaItem = (props) => {
         <img src={image} alt={props.description}></img>
         <div className={classes.details}>
           <h2>{props.name}</h2>
-          <p>{props.description} and a lot of random text that describes this drink.</p>
+          <p>
+            {props.description} and a lot of random text that describes this
+            drink.
+          </p>
         </div>
       </Link>
     </ProductItem>

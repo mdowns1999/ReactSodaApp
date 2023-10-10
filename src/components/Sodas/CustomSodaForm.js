@@ -9,78 +9,7 @@ import CartContext from "../../store/cart-context";
 import SizeSelect from "./SizeSelect";
 import QuantitySelect from "./QuantitySelect";
 
-const sodaFlavors = [
-  {
-    id: "f1",
-    name: "Pepsi",
-    price: 2.0,
-  },
-  {
-    id: "f2",
-    name: "Sprite",
-    price: 2.0,
-  },
-  {
-    id: "f3",
-    name: "Dr.Pepper",
-    price: 2.0,
-  },
-  {
-    id: "f4",
-    name: "Diet Coke",
-    price: 2.0,
-  },
-  {
-    id: "f5",
-    name: "Rootbeer",
-    price: 2.0,
-  },
-  {
-    id: "f6",
-    name: "Fanta",
-    price: 2.0,
-  },
-];
-
-const sodaSyrups = [
-  {
-    id: "s1",
-    name: "Capsicum",
-    price: 10.0,
-  },
-  {
-    id: "s2",
-    name: "Paneer",
-    price: 10.0,
-  },
-  {
-    id: "s3",
-    name: "Red Paprika",
-    price: 10.0,
-  },
-  {
-    id: "s4",
-    name: "Raspberry",
-    price: 10.0,
-  },
-  {
-    id: "s5",
-    name: "Extra Cheese",
-    price: 10.0,
-  },
-  {
-    id: "s6",
-    name: "Baby Corns",
-    price: 10.0,
-  },
-  {
-    id: "s7",
-    name: "Mushroom",
-    price: 10.0,
-  },
-];
-
-const CustomSodaForm = () => {
+const CustomSodaForm = (props) => {
   const [totalCost, setPrice] = useState(0);
   const [SyrupTotal, setSyrupTotal] = useState(0);
   const [sodaTotal, setSodaTotal] = useState(0);
@@ -97,7 +26,7 @@ const CustomSodaForm = () => {
   const addtoCartHandler = (event) => {
     event.preventDefault();
 
-    let flavorName = sodaFlavors.find((soda) => {
+    let flavorName = props.sodaList.find((soda) => {
       return soda.id === SelectedSodaType;
     });
 
@@ -132,7 +61,7 @@ const CustomSodaForm = () => {
       <div>
         <h2>Syrup Flavors:</h2>
         <ul>
-          {sodaFlavors.map((flavor) => (
+          {props.sodaList.map((flavor) => (
             <RadioButton
               key={flavor.id}
               id={flavor.id}
@@ -149,7 +78,7 @@ const CustomSodaForm = () => {
         <h2>Syrup Flavors:</h2>
         <ul>
           <CheckBox
-            list={sodaSyrups}
+            list={props.syrupList}
             setSelectedList={setSodaList}
             setTotalValue={setSyrupTotal}
           />

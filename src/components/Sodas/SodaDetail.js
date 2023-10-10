@@ -1,4 +1,4 @@
-import React, { Fragment, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import classes from "./SodaDetail.module.css";
 import { useContext } from "react";
 import CartContext from "../../store/cart-context";
@@ -7,7 +7,7 @@ import SizeSelect from "./SizeSelect";
 import QuantitySelect from "./QuantitySelect";
 import { json, useLoaderData } from "react-router-dom";
 
-const getSodaImage = (imageName) =>{
+const getSodaImage = (imageName) => {
   switch (imageName) {
     case "Cherry":
       return require("../../images/blank.png");
@@ -16,7 +16,7 @@ const getSodaImage = (imageName) =>{
     default:
       return require("../../images/blank.png");
   }
-}
+};
 
 const SodaDetail = () => {
   const data = useLoaderData();
@@ -48,7 +48,7 @@ const SodaDetail = () => {
   const price = `$${sodaItem.price.toFixed(2)}`;
   const image = getSodaImage(sodaItem.imgRoute);
   return (
-    <div>
+    <>
       {/* {props.itemOfMonth && (
         <div className={classes.productOfMonthBanner}>
           <h1>Item of the Month</h1>
@@ -60,35 +60,39 @@ const SodaDetail = () => {
           <h2>{sodaItem.name}</h2>
           <span>{price}</span>
           <p>
-            {sodaItem.description} and a lot of random text that describes
-            this drink. and a lot of random text that describes this drink. and
-            a lot of random text that describes this drink.
+            {sodaItem.description} and a lot of random text that describes this
+            drink. and a lot of random text that describes this drink. and a lot
+            of random text that describes this drink.
           </p>
-          <QuantitySelect quantityRef={quantityRef}/>
+          <QuantitySelect quantityRef={quantityRef} />
 
           <div className={classes.sizeBox}>
-            <SizeSelect setSize={setSize}/>
+            <SizeSelect setSize={setSize} />
           </div>
 
           <Button>Add to Cart</Button>
         </form>
       </section>
-    </div>
+    </>
   );
 };
 
 export default SodaDetail;
 
-export async function loader({request, params}) {
-
+export async function loader({ request, params }) {
   const id = params.id;
-  const response = await fetch('https://poppinsodasbackend.onrender.com/sodas/' + id);
-  
-  if(!response.ok){
-    throw json({message: 'Could not Fetch Soda'}, {
-      status: 500
-    })
-  } else{
+  const response = await fetch(
+    "https://poppinsodasbackend.onrender.com/sodas/" + id
+  );
+
+  if (!response.ok) {
+    throw json(
+      { message: "Could not Fetch Soda" },
+      {
+        status: 500,
+      }
+    );
+  } else {
     return response;
   }
 }
