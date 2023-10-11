@@ -4,10 +4,24 @@ import React, { useReducer } from "react";
 
 function updateBrowserStorage(cart){
 
-    localStorage.setItem("cart", JSON.stringify(cart));
+    sessionStorage.setItem("cart", JSON.stringify(cart));
 }
 
-let defaultCartState;
+function determinePriceBySize(ItemPrice, ItemSize){
+  switch (ItemSize) {
+      case 16:
+        return 2.75;
+      case 32:
+        return 3.00;
+      default:
+        return ItemPrice;
+    }
+}
+
+let defaultCartState= {
+  items: [],
+  totalAmount: 0,
+};
 
 if(localStorage.getItem("cart") === null){
   defaultCartState = {
@@ -15,13 +29,23 @@ if(localStorage.getItem("cart") === null){
     totalAmount: 0,
   };
 }else{
-  defaultCartState = JSON.parse(localStorage.getItem("cart"));
+  let cart = JSON.parse(localStorage.getItem("cart"));
+
+  if(cart.items.length === 0){
+    defaultCartState = {
+      items: [],
+      totalAmount: 0,
+    };
+  }else{
+    defaultCartState = cart;
+  }
 }
 
 
 //State is last snapshot, return new state
 const cartReducer = (state, action) => {
   if (action.type === "ADD") {
+    action.item.price = determinePriceBySize(action.item.price, action.item.size);
     const updatedTotalAmount =
       state.totalAmount + action.item.price * action.item.amount;
 
@@ -30,6 +54,7 @@ const cartReducer = (state, action) => {
     );
 
     const exsitingCartItem = state.items[existingCartItemIndex];
+
     let updatedItems;
 
     if (exsitingCartItem) {
@@ -50,6 +75,7 @@ const cartReducer = (state, action) => {
       items: updatedItems,
       totalAmount: updatedTotalAmount,
     };
+
 
     //Update cart in case user leaves
     updateBrowserStorage(cart);
@@ -119,7 +145,6 @@ const CartProvider = (props) => {
   );
 
   const addItemToCartHandler = (item) => {
-    console.log(item.size);
     dispatchCartAction({
       type: "ADD",
       item: item,

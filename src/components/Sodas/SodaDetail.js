@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import classes from "./SodaDetail.module.css";
 import { useContext } from "react";
 import CartContext from "../../store/cart-context";
@@ -24,7 +24,7 @@ const SodaDetail = () => {
 
   const cartCtx = useContext(CartContext);
   const quantityRef = useRef();
-  const [size, setSize] = useState("8");
+  const [size, setSize] = useState("");
 
   const addtoCartHandler = (event) => {
     event.preventDefault();
@@ -45,7 +45,28 @@ const SodaDetail = () => {
     }
   };
 
-  const price = `$${sodaItem.price.toFixed(2)}`;
+  let price = "Please enter a price";
+
+  // useEffect(() => {
+  //   switch (size) {
+  //     case "8":
+  //       price = `$${sodaItem.price.toFixed(2)}`;
+  //       break;
+  //     case "16":
+  //       price = `$${(sodaItem.price + 0.25).toFixed(2)}`;
+  //       break;
+  //     case "32":
+  //       price = `$${(sodaItem.price + 0.50).toFixed(2)}`;
+  //       break;
+  //     default:
+  //       price= "Please enter a price"
+  //       break;
+  //   }
+  // },[size, sodaItem.price])
+ 
+
+
+  
   const image = getSodaImage(sodaItem.imgRoute);
   return (
     <>
