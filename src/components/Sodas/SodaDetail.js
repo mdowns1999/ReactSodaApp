@@ -5,7 +5,7 @@ import CartContext from "../../store/cart-context";
 import Button from "../UI/Button";
 import SizeSelect from "./SizeSelect";
 import QuantitySelect from "./QuantitySelect";
-import { json, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 
 const getSodaImage = (imageName) => {
   switch (imageName) {
@@ -86,12 +86,7 @@ export async function loader({ request, params }) {
   );
 
   if (!response.ok) {
-    throw json(
-      { message: "Could not Fetch Soda" },
-      {
-        status: 500,
-      }
-    );
+    throw new Response (JSON.stringify({message:"Could not get soda item!"}), {status: 500});
   } else {
     return response;
   }

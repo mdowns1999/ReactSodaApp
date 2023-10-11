@@ -141,7 +141,7 @@ export async function loader() {
   const response = await fetch('https://poppinsodasbackend.onrender.com/sodas');
 
   if(!response.ok){
-
+    throw new Response (JSON.stringify({message:"Oh no! Looks like we have a mess on our end.  We are getting it cleaned up as fast as we can.  Please try again later!"}), {status: 500});
   }else{
     return response;
   }
