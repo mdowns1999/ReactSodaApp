@@ -1,10 +1,23 @@
 import CartContext from "./cart-context";
 import React, { useReducer } from "react";
 
-const defaultCartState = {
-  items: [],
-  totalAmount: 0,
-};
+
+function updateBrowserStorage(cart){
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+let defaultCartState;
+
+if(localStorage.getItem("cart") === null){
+  defaultCartState = {
+    items: [],
+    totalAmount: 0,
+  };
+}else{
+  defaultCartState = JSON.parse(localStorage.getItem("cart"));
+}
+
 
 //State is last snapshot, return new state
 const cartReducer = (state, action) => {
@@ -32,10 +45,16 @@ const cartReducer = (state, action) => {
       updatedItems = state.items.concat(action.item);
     }
 
-    return {
+    //Set the values to an object to return
+    let cart = {
       items: updatedItems,
       totalAmount: updatedTotalAmount,
     };
+
+    //Update cart in case user leaves
+    updateBrowserStorage(cart);
+
+    return cart
   }
 
   if(action.type === "REMOVE"){
@@ -55,20 +74,38 @@ const cartReducer = (state, action) => {
       updatedItems[existingCartItemIndex] = updatedItem;
     }
 
-    return {
+    //Set the values to an object to return
+    let cart = {
       items: updatedItems,
       totalAmount: updatedTotalAmount,
     };
 
+    //Update cart in case user leaves
+    updateBrowserStorage(cart);
+
+    return cart
+
   }
 
   if(action.type === "DELETE"){
+    const existingCartItemIndex = state.items.findIndex(
+      (item) => item.id === action.id
+    );
+    const existingItem = state.items[existingCartItemIndex];
+    const updatedTotalAmount = state.totalAmount - (existingItem.price * existingItem.amount);
+
     let updatedItems = state.items.filter(item => item.id !== action.id);
 
-    return {
+    //Set the values to an object to return
+    let cart = {
       items: updatedItems,
-      totalAmount: 0,
+      totalAmount: updatedTotalAmount,
     };
+
+    //Update cart in case user leaves
+    updateBrowserStorage(cart);
+
+    return cart
 
   }
 
