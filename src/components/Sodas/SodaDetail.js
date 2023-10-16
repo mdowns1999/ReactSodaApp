@@ -6,6 +6,8 @@ import Button from "../UI/Button";
 import SizeSelect from "./SizeSelect";
 import QuantitySelect from "./QuantitySelect";
 import { useLoaderData, useNavigate } from "react-router-dom";
+import fetchHttp from "../../helper/fetchHttp";
+import priceBySize from "../../helper/priceBySize";
 
 const getSodaImage = (imageName) => {
   switch (imageName) {
@@ -52,26 +54,11 @@ const SodaDetail = () => {
   };
 
   let price = "Please enter a price";
+  console.log(size)
+  if(size !== ""){
+    price = priceBySize(sodaItem.price , size).toFixed(2);
+  }
 
-    switch (size) {
-      case 8:
-        price = `$${sodaItem.price.toFixed(2)} per ${size}oz drink`;
-        break;
-      case 16:
-        price = `$${(sodaItem.price + 0.25).toFixed(2)} per ${size}oz drink`;
-        break;
-      case 32:
-        price = `$${(sodaItem.price + 0.50).toFixed(2)} per ${size}oz drink`;
-        break;
-      default:
-        price= "Please enter a price"
-        break;
-    }
-
- 
-
-
-  
   const image = getSodaImage(sodaItem.imgRoute);
   return (
     <>
@@ -107,13 +94,10 @@ export default SodaDetail;
 
 export async function loader({ request, params }) {
   const id = params.id;
-  const response = await fetch(
-    "https://poppinsodasbackend.onrender.com/sodas/" + id
-  );
-
-  if (!response.ok) {
-    throw new Response (JSON.stringify({message:"Could not get soda item!"}), {status: 500});
-  } else {
-    return response;
+  let error = {
+    message:"Could not get soda item!",
+    status: 500
   }
+  return fetchHttp({url: 'https://poppinsodasbackend.onrender.com/sodas/' + id, error});
+
 }

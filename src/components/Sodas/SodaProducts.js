@@ -3,116 +3,42 @@ import SodaItem from "./SodaItem";
 import classes from "./SodaProducts.module.css";
 import Button from "../UI/Button";
 import { useLoaderData } from "react-router-dom";
-
-// const itemOfTheMonth = {
-//   id: "d1",
-//   name: "Sprite Mango",
-//   amount: 1,
-//   price: 5.00,
-//   image: require("../../images/blank.png"),
-// }
-
-// const DUMMY_SODAS = [
-//   {
-//     id: "s1",
-//     name: "Sprite",
-//     description: "Just normal Sprites",
-//     price: 2.0,
-//     imgRoute: require("../../images/blank.png"),
-//     amount: 1,
-//     ingredients:{
-//       baseSoda: "RootBeer",
-//       ingredients: ["Stuff 1", "Stuff 2"]
-//     }
-//   },
-//   {
-//     id: "s2",
-//     name: "Pepsi",
-//     description: "Just normal Pepsi",
-//     price: 2.5,
-//     imgRoute: require("../../images/blank.png"),
-//     amount: 1,
-//     ingredients:{
-//       baseSoda: "RootBeer",
-//       ingredients: ["Stuff 1", "Stuff 2"]
-//     }
-//   },
-//   {
-//     id: "s3",
-//     name: "Dr.Pepper",
-//     description: "A white Girl drink",
-//     price: 12.99,
-//     imgRoute: require("../../images/blank.png"),
-//     amount: 1,
-//     ingredients:{
-//       baseSoda: "RootBeer",
-//       ingredients: ["Stuff 1", "Stuff 2"]
-//     }
-//   },
-//   {
-//     id: "s4",
-//     name: "Diet Pepsi",
-//     description: "Its Diet Pepsi",
-//     price: 2.5,
-//     imgRoute: require("../../images/blank.png"),
-//     amount: 1,
-//     ingredients:{
-//       baseSoda: "RootBeer",
-//       ingredients: ["Stuff 1", "Stuff 2"]
-//     }
-//   },
-//   {
-//     id: "s5",
-//     name: "RootBeer",
-//     description: "Rootbeer.  Yup.",
-//     price: 12.99,
-//     imgRoute: require("../../images/blank.png"),
-//     amount: 1,
-//     ingredients:{
-//       baseSoda: "RootBeer",
-//       ingredients: ["Stuff 1", "Stuff 2"]
-//     }
-//   },
-// ];
-
+import fetchHttp from "../../helper/fetchHttp";
 
 const SodaProducts = (props) => {
   const SODAS = useLoaderData();
-  const sodaList = <>{SODAS.map((item) => (
-    <SodaItem
-      key={item.id}
-      id={item.id}
-      name={item.name}
-      description={item.description}
-      price={item.price}
-      image={SODAS[0].imgRoute}
-      amount={item.amount}
-    />
-  ))}
-  
-  <SodaItem
-      key={"custom-1"}
-      id={"custom"}
-      name={"Custom-Drink"}
-      description={"Description"}
-      price={0}
-      image={SODAS[0].imgRoute}
-      amount={1}
-    />
-  </>
+  const sodaList = (
+    <>
+      {SODAS.map((item) => (
+        <SodaItem
+          key={item.id}
+          id={item.id}
+          name={item.name}
+          description={item.description}
+          price={item.price}
+          image={SODAS[0].imgRoute}
+          amount={item.amount}
+        />
+      ))}
 
+      <SodaItem
+        key={"custom-1"}
+        id={"custom"}
+        name={"Custom-Drink"}
+        description={"Description"}
+        price={0}
+        image={SODAS[0].imgRoute}
+        amount={1}
+      />
+    </>
+  );
 
-  const navigateToDrinkHandler = () => {
-  
-  }
+  const navigateToDrinkHandler = () => {};
 
   return (
     <Fragment>
       <section className={classes.productOfMonth}>
-      <img
-          src={require("../../images/blank.png")}
-          alt="Custom Soda"
-        ></img>
+        <img src={require("../../images/blank.png")} alt="Custom Soda"></img>
         <div>
           <h1>Custom Drink</h1>
           <p>
@@ -138,12 +64,13 @@ const SodaProducts = (props) => {
 export default SodaProducts;
 
 export async function loader() {
-  const response = await fetch('https://poppinsodasbackend.onrender.com/sodas');
-
-  if(!response.ok){
-    throw new Response (JSON.stringify({message:"Oh no! Looks like we have a mess on our end.  We are getting it cleaned up as fast as we can.  Please try again later!"}), {status: 500});
-  }else{
-    return response;
-  }
-
+  let error = {
+    message:
+      "Oh no! Looks like we have a mess on our end.  We are getting it cleaned up as fast as we can.  Please try again later!",
+    status: 500,
+  };
+  return fetchHttp({
+    url: "https://poppinsodasbackend.onrender.com/sodas",
+    error,
+  });
 }

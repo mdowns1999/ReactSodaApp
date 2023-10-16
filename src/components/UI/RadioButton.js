@@ -6,7 +6,6 @@ const RadioButton = (props) => {
         props.setSelectedValue(+event.target.value);
         if(props.setSodaID instanceof Function){
           props.setSodaID(event.target.id);
-          console.log(event.target.id)
         }
     }
 

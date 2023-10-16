@@ -1,3 +1,4 @@
+import priceBySize from "../helper/priceBySize";
 import CartContext from "./cart-context";
 import React, { useReducer } from "react";
 
@@ -7,16 +8,16 @@ function updateBrowserStorage(cart){
     sessionStorage.setItem("cart", JSON.stringify(cart));
 }
 
-function determinePriceBySize(ItemPrice, ItemSize){
-  switch (ItemSize) {
-      case 16:
-        return 2.75;
-      case 32:
-        return 3.00;
-      default:
-        return ItemPrice;
-    }
-}
+// function determinePriceBySize(ItemPrice, ItemSize){
+//   switch (ItemSize) {
+//       case 16:
+//         return ItemPrice + 0.25;
+//       case 32:
+//         return ItemPrice + 0.50;
+//       default:
+//         return ItemPrice;
+//     }
+// }
 
 let defaultCartState= {
   items: [],
@@ -45,7 +46,7 @@ if(localStorage.getItem("cart") === null){
 //State is last snapshot, return new state
 const cartReducer = (state, action) => {
   if (action.type === "ADD") {
-    action.item.price = determinePriceBySize(action.item.price, action.item.size);
+    action.item.price = priceBySize(action.item.price, action.item.size);
     const updatedTotalAmount =
       state.totalAmount + action.item.price * action.item.amount;
 

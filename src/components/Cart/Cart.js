@@ -14,41 +14,6 @@ const Cart = (props) => {
   const cartCtx = useContext(CartContext);
   const totalAmount = `${cartCtx.totalAmount.toFixed(2)}`;
 
-  // const removeItemHandler = (id) => {
-  //   cartCtx.removeItem(id);
-  // };
-
-  // const addItemHandler = (item) => {
-  //   cartCtx.addItem({...item, amount: 1})
-  // };
-
-  // const deleteItemHandler = (id) => {
-  //   cartCtx.deleteItem(id)
-  // };
-
-  // let cartItems;
-  // if(cartCtx.items.length === 0){
-  //   cartItems = <p>You have no Items in the Cart</p>
-  // }else{
-  //   cartItems = (
-  //     <ul className=
-  //     {classes['cart-items']}>
-  //       {cartCtx.items.map((item) => (
-  //         <CartItem
-  //         key={"O" + item.id}
-  //         name={item.name}
-  //         price={item.price}
-  //         amount={item.amount}
-  //         size={item.size}
-  //         onRemove={removeItemHandler.bind(null, item.id)}
-  //         onAdd={addItemHandler.bind(null, item)}
-  //         onDelete={deleteItemHandler.bind(null, item.id)}
-  //         />
-  //       ))}
-  //     </ul>
-  //   );
-  // }
-  
   useEffect(() => {
     console.log(cartCtx.items)
     if(cartCtx.items.length === 0){

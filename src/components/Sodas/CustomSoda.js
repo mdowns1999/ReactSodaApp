@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import classes from "./CustomSoda.module.css";
 import CustomSodaForm from "./CustomSodaForm";
+import fetchHttp from "../../helper/fetchHttp";
 
 const CustomSodas = () => {
   const customSodaLists = useLoaderData();
@@ -35,12 +36,9 @@ const CustomSodas = () => {
 export default CustomSodas;
 
 export async function loader() {
-  const response = await fetch(
-    "https://poppinsodasbackend.onrender.com/custom"
-  );
-
-  if (!response.ok) {
-  } else {
-    return response;
+  let error = {
+    message:"Oh no! Looks like we have a mess on our end.  We are getting it cleaned up as fast as we can.  Please try again later!",
+    status: 500
   }
+  return fetchHttp({url: "https://poppinsodasbackend.onrender.com/custom", error});
 }
