@@ -6,7 +6,6 @@ const CartItem = (props) => {
   
   return (
     <li className={classes.item}>
-      <div className={classes.details}>
       <img
           src={require("../../images/blank.png")}
           alt={props.description}
@@ -16,7 +15,7 @@ const CartItem = (props) => {
           <h2>{props.name} ({props.size} OZ)</h2>
           
         </div>
-      </div>
+      
       <span className={classes.price}>{price}</span>
       <div className={classes.actions}>
         <div>        <button onClick={props.onRemove}>−</button>
