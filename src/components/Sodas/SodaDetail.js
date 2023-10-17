@@ -23,7 +23,6 @@ const getSodaImage = (imageName) => {
 const SodaDetail = () => {
   let navigate = useNavigate();
 
- 
   const data = useLoaderData();
   const sodaItem = data[0];
 
@@ -50,13 +49,12 @@ const SodaDetail = () => {
     }
 
     //Navigate away to Products page
-    navigate('/products');
+    navigate("/products");
   };
 
   let price = "Please enter a price";
-  console.log(size)
-  if(size !== ""){
-    price = priceBySize(sodaItem.price , size).toFixed(2);
+  if (size !== "") {
+    price = priceBySize(sodaItem.price, size).toFixed(2);
   }
 
   const image = getSodaImage(sodaItem.imgRoute);
@@ -95,9 +93,11 @@ export default SodaDetail;
 export async function loader({ request, params }) {
   const id = params.id;
   let error = {
-    message:"Could not get soda item!",
-    status: 500
-  }
-  return fetchHttp({url: 'https://poppinsodasbackend.onrender.com/sodas/' + id, error});
-
+    message: "Could not get soda item!",
+    status: 500,
+  };
+  return fetchHttp({
+    url: "https://poppinsodasbackend.onrender.com/sodas/" + id,
+    error,
+  });
 }

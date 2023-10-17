@@ -1,38 +1,49 @@
-form h2{
-    text-align: center;
+.customForm {
+  text-align: center;
 }
-.customForm ul{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-items: center;
-    margin: 1em 0;
-}
-
-.customForm ul li{
-    list-style: none;
-    font-size: 16px;
+.customForm ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  margin: 1em 0;
 }
 
-.btnBox{
+.customForm ul li {
+  list-style: none;
+  font-size: 16px;
+}
+
+.btnBox {
+  margin: 0 auto;
+  max-width: 60%;
+}
+
+.sizeBox {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.quantityBox {
+  max-width: 700px;
+  margin: 10px auto;
+  padding: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .customForm ul {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .btnBox {
     margin: 0 auto;
-max-width: 60%;
-}
-
-  @media screen and (min-width: 768px) {
-    .customForm ul{
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-
-.btnBox{
-    margin: 0 auto;
-max-width: 45%;
-}
-
+    max-width: 45%;
+  }
 }
 
 @media screen and (min-width: 1200px) {
-    .customForm ul{
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-    }
-
+  .customForm ul {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }

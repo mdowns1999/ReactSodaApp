@@ -15,7 +15,6 @@ const Cart = (props) => {
   const totalAmount = `${cartCtx.totalAmount.toFixed(2)}`;
 
   useEffect(() => {
-    console.log(cartCtx.items)
     if(cartCtx.items.length === 0){
       setOrderRoute(location);
       setCarthasOrders(false);

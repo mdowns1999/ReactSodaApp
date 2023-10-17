@@ -1,16 +1,14 @@
-.orderDetailSection{
-    max-width: 850px;
-    margin: 0 auto;
-    padding:10px;
+.thankyou {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 5px;
 }
 
-.orderDetailSection .orderH2{
-    text-align: center;
-    margin: 1.5em 0;
+.thankyou h2 {
+  text-align: center;
+  padding: 10px;
 }
 
-.orderDetailSection button{
-    max-width: 40%;
-    margin: 10px auto;
+.orderNum {
+  font-weight: bold;
 }
-

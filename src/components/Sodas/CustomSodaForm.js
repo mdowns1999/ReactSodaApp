@@ -8,6 +8,8 @@ import { useContext } from "react";
 import CartContext from "../../store/cart-context";
 import SizeSelect from "./SizeSelect";
 import QuantitySelect from "./QuantitySelect";
+import { useNavigate } from "react-router-dom";
+import priceBySize from "../../helper/priceBySize";
 
 const CustomSodaForm = (props) => {
   const [totalCost, setPrice] = useState(0);
@@ -18,10 +20,12 @@ const CustomSodaForm = (props) => {
   const [size, setSize] = useState("8");
   const quantityRef = useRef();
   const cartCtx = useContext(CartContext);
+  let navigate = useNavigate();
 
   useEffect(() => {
-    setPrice(SyrupTotal + sodaTotal);
-  }, [totalCost, SyrupTotal, sodaTotal]);
+    let sodaTotalWithSize = priceBySize(sodaTotal, size)
+    setPrice(SyrupTotal + sodaTotalWithSize);
+  }, [totalCost, SyrupTotal, sodaTotal, size]);
 
   const addtoCartHandler = (event) => {
     event.preventDefault();
@@ -31,12 +35,9 @@ const CustomSodaForm = (props) => {
     });
 
     //Add Flavors to Cart CTX and List
-    console.log(flavorName);
-    console.log(SelectedSodaList);
-
     cartCtx.addItem({
       id: "c" + flavorName.id,
-      name: flavorName.name,
+      name: "Custom " + flavorName.name,
       amount: +quantityRef.current.value,
       price: totalCost,
       ingredents: {
@@ -46,15 +47,22 @@ const CustomSodaForm = (props) => {
       size: size,
     });
 
-    //Reseet the values
-    setPrice(0);
+    //Reset the values
+    setSodaTotal(0.0);
+    setSyrupTotal(0.0);
+    setPrice(0.0);
     quantityRef.current.value = "";
     for (let i = 0; i < event.target.length; i++) {
       if (event.target[i].checked) {
         event.target[i].checked = null;
       }
     }
+
+    //Navigate away to Products page
+    navigate("/products");
   };
+
+  let total = `$${totalCost.toFixed(2)}`;
 
   return (
     <form className={classes.customForm} onSubmit={addtoCartHandler}>
@@ -85,14 +93,15 @@ const CustomSodaForm = (props) => {
         </ul>
       </div>
 
-      <div className={classes.sizeBox}>
+      <div className={classes.quantityBox}>
         <QuantitySelect quantityRef={quantityRef} />
-
-        <div className={classes.sizeBox}>
-          <SizeSelect setSize={setSize} />
-        </div>
       </div>
-      <p>Total Price: {totalCost}</p>
+
+      <div className={classes.sizeBox}>
+        <SizeSelect setSize={setSize} />
+      </div>
+
+      <p>Total Price: {total}</p>
 
       <div className={classes.btnBox}>
         <Button>Add to Cart</Button>

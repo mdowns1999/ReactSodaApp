@@ -1,6 +1,5 @@
 import React from "react";
 import ProductItem from "../UI/ProductItem";
-import classes from "./SodaItem.module.css";
 import { Link } from "react-router-dom";
 
 const getSodaImage = (imageName) => {
@@ -27,9 +26,9 @@ const SodaItem = (props) => {
 
   return (
     <ProductItem>
-      <Link className={classes.productBox} to={props.id} onClick={scrollToTop}>
+      <Link to={props.id} onClick={scrollToTop}>
         <img src={image} alt={props.description}></img>
-        <div className={classes.details}>
+        <div>
           <h2>{props.name}</h2>
           <p>
             {props.description} and a lot of random text that describes this

@@ -39,7 +39,7 @@ const CheckBox = (props) => {
       },
       0
     );
-    props.setTotalValue(totalPrice);
+   props.setTotalValue(totalPrice);
     props.setSelectedList(selectedList);
   };
 
