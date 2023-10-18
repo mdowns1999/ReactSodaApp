@@ -31,8 +31,7 @@ const SodaItem = (props) => {
         <div>
           <h2>{props.name}</h2>
           <p>
-            {props.description} and a lot of random text that describes this
-            drink.
+            {props.description}
           </p>
         </div>
       </Link>

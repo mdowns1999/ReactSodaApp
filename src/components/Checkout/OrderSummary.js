@@ -4,6 +4,7 @@ import classes from "./OrderSummary.module.css";
 import { useNavigate } from "react-router-dom";
 import CartList from "../Cart/CartList";
 import Button from "../UI/Button";
+import fetchHttp from "../../helper/fetchHttp";
 
 const OrderSummary = () => {
   const cartCtx = useContext(CartContext);
@@ -21,7 +22,21 @@ const OrderSummary = () => {
 
   const submitOrderHandler = () => {
     //SEND POST REQUEST
-
+    // let error = {
+    //   message: "Could not send soda order!",
+    //   status: 500,
+    // };
+    // fetchHttp({
+    //   url: "https://poppinsodasbackend.onrender.com/sodas/",
+    //   error,
+    //   method: 'POST',
+    //   headers: {
+    //     "Access-Control-Allow-Headers": "*", // this will allow all CORS requests
+    //     "Access-Control-Allow-Methods": 'OPTIONS,POST,GET', // this states the allowed methods
+    //     "Content-Type": "application/json" // this shows the expected content type
+    //   },
+    //   body: cartCtx.items
+    // })
     //Go to conformation page
     navigate("/confirm");
   };

@@ -24,8 +24,8 @@ const SodaProducts = (props) => {
       <SodaItem
         key={"custom-1"}
         id={"custom"}
-        name={"Custom-Drink"}
-        description={"Description"}
+        name={"Custom Drink"}
+        description={"Build your own delicious soda!"}
         price={0}
         image={SODAS[0].imgRoute}
         amount={1}

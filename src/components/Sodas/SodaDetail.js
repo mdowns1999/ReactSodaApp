@@ -22,7 +22,6 @@ const getSodaImage = (imageName) => {
 
 const SodaDetail = () => {
   let navigate = useNavigate();
-
   const data = useLoaderData();
   const sodaItem = data[0];
 
@@ -38,6 +37,7 @@ const SodaDetail = () => {
       name: sodaItem.name,
       amount: +quantityRef.current.value,
       price: sodaItem.price,
+      ingredients: sodaItem.ingredients,
       size: size,
     });
 
@@ -52,12 +52,24 @@ const SodaDetail = () => {
     navigate("/products");
   };
 
-  let price = "Please enter a price";
+  let price = "Choose a size to see price.";
   if (size !== "") {
-    price = priceBySize(sodaItem.price, size).toFixed(2);
+    price = `$${priceBySize(sodaItem.price, size).toFixed(
+      2
+    )} per ${size}oz drink`;
   }
 
   const image = getSodaImage(sodaItem.imgRoute);
+
+  let ingredientsList = (
+    <ul className={classes.ingredients}>
+      {sodaItem.ingredients.ingredients.map((item, index) => (
+        <li key={index}>
+          <span>-</span> {item}
+        </li>
+      ))}
+    </ul>
+  );
   return (
     <>
       {/* {props.itemOfMonth && (
@@ -70,11 +82,11 @@ const SodaDetail = () => {
         <form className={classes.details} onSubmit={addtoCartHandler}>
           <h2>{sodaItem.name}</h2>
           <span>{price}</span>
-          <p>
-            {sodaItem.description} and a lot of random text that describes this
-            drink. and a lot of random text that describes this drink. and a lot
-            of random text that describes this drink.
-          </p>
+          <p>{sodaItem.description}</p>
+          <div>
+            <h3>Ingredients:</h3>
+            {ingredientsList}
+          </div>
           <QuantitySelect quantityRef={quantityRef} />
 
           <div className={classes.sizeBox}>
