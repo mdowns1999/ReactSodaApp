@@ -4,8 +4,10 @@ import classes from "./SodaProducts.module.css";
 import Button from "../UI/Button";
 import { useLoaderData } from "react-router-dom";
 import fetchHttp from "../../helper/fetchHttp";
+import { useState } from "react";
 
 const SodaProducts = (props) => {
+  const [isLoading, setIsLoading] = useState(false);
   const SODAS = useLoaderData();
   const sodaList = (
     <>

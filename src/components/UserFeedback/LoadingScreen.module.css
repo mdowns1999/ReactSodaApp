@@ -1,0 +1,33 @@
+.loadingSection{
+    position:fixed;
+    top: 15vh;
+    left: 25%;
+    padding: 20px;
+    
+    width: 45%;
+    margin: 0 auto;
+    background-color: var(--secondaryColor, #d9e5d6);
+    border-radius: 10px;
+    border: 1px solid black;
+    z-index: 900;
+    text-align: center;
+}
+
+.sodaLoader{
+    margin: 10px auto;
+    border: 10px solid #bebebe;
+    border-top: 10px solid #0fa3b1;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: spinLoader 2s linear infinite;
+}
+
+@keyframes spinLoader{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}

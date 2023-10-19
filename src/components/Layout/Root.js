@@ -1,11 +1,14 @@
 import { useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigation } from "react-router-dom";
 import Header from "./Header";
 import CartProvider from "../../store/CartProvider";
 import Footer from "./Footer";
 import Cart from "../Cart/Cart";
+import LoadingScreen from "../UserFeedback/LoadingScreen";
+
 
 function RootLayout(){
+    const navigation = useNavigation();
     const [cartIsShown, setCartIsShown] = useState(false);
 
     const showCartHandler = () => {
@@ -21,6 +24,8 @@ function RootLayout(){
       {cartIsShown && <Cart onClose={hideCartHandler} />}
       <Header onShowCart={showCartHandler} />
       <main>
+      <LoadingScreen/>
+        {navigation.state === 'loading' && <LoadingScreen/>}
         <Outlet/>
       </main>
       <Footer />

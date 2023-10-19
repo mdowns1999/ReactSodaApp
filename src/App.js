@@ -10,7 +10,7 @@ import RootLayout from "./components/Layout/Root";
 import SodaDetail, {
   loader as sodaDetailLoader,
 } from "./components/Sodas/SodaDetail";
-import ErrorPage from "./components/Error/ErrorPage";
+import ErrorPage from "./components/UserFeedback/ErrorPage";
 import OrderSummary from "./components/Checkout/OrderSummary";
 import OrderConformation from "./components/Checkout/OrderComformation";
 

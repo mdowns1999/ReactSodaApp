@@ -22,21 +22,19 @@ const OrderSummary = () => {
 
   const submitOrderHandler = () => {
     //SEND POST REQUEST
-    // let error = {
-    //   message: "Could not send soda order!",
-    //   status: 500,
-    // };
-    // fetchHttp({
-    //   url: "https://poppinsodasbackend.onrender.com/sodas/",
-    //   error,
-    //   method: 'POST',
-    //   headers: {
-    //     "Access-Control-Allow-Headers": "*", // this will allow all CORS requests
-    //     "Access-Control-Allow-Methods": 'OPTIONS,POST,GET', // this states the allowed methods
-    //     "Content-Type": "application/json" // this shows the expected content type
-    //   },
-    //   body: cartCtx.items
-    // })
+    let error = {
+      message: "Could not send soda order!",
+      status: 500,
+    };
+    fetchHttp({
+      url: "https://poppinsodasbackend.onrender.com/orders",
+      error,
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json" // this shows the expected content type
+      },
+      body: {order_id: 1, order_num: 100, cart: cartCtx.items}
+    })
     //Go to conformation page
     navigate("/confirm");
   };
