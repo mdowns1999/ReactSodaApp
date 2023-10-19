@@ -24,7 +24,6 @@ function RootLayout(){
       {cartIsShown && <Cart onClose={hideCartHandler} />}
       <Header onShowCart={showCartHandler} />
       <main>
-      <LoadingScreen/>
         {navigation.state === 'loading' && <LoadingScreen/>}
         <Outlet/>
       </main>
