@@ -1,6 +1,6 @@
 const fetchHttp = async (configObject) => {
     const options = {
-      method: configObject.method ? configObject.method : "GET",
+      method: configObject.method ? configObject.method : 'GET',
       headers: configObject.headers ? configObject.headers : {},
       body: configObject.body ? JSON.stringify(configObject.body) : null,
     };

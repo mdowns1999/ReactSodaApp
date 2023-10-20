@@ -5,6 +5,7 @@ import classes from "./OrderConformation.module.css";
 const OrderConformation = () => {
   const cartCtx = useContext(CartContext);
 
+
   useEffect(() => {
     if (cartCtx.items.length !== 0) {
       cartCtx.clearCart();
