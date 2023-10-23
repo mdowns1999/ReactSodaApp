@@ -11,18 +11,18 @@ import { useEffect } from "react";
 function RootLayout(){
     const navigation = useNavigation();
     const [cartIsShown, setCartIsShown] = useState(false);
-    const [dataIsLoaded, setDataisLoaded] = useState(false);
-    const [loadingCount, setLoadingCount] = useState(0);
+    // const [isLoading, setisLoading] = useState(1);
+    // const [loadingScreen, setLoadingScreen] = useState(0);
 
-   useEffect(() => {
-    if(navigation.state === 'loading' && loadingCount === 0){
-      setDataisLoaded(true);
 
-      setLoadingCount(1)
-    }else{
-      setDataisLoaded(false);
-    }
-   },[navigation.state, loadingCount]);
+  //  useEffect(() => {
+  //   if(navigation.state === 'loading' && isLoading !== 0){
+  //     setLoadingScreen(<LoadingScreen/>)
+  //     setisLoading(0);
+  //   }else{
+  //     setLoadingScreen(<></>)
+  //   }
+  //  },[navigation.state, isLoading]);
 
 
     const showCartHandler = () => {
@@ -38,7 +38,7 @@ function RootLayout(){
       {cartIsShown && <Cart onClose={hideCartHandler} />}
       <Header onShowCart={showCartHandler} />
       <main>
-        {dataIsLoaded && <LoadingScreen/>}
+        {navigation.state === 'loading' && <LoadingScreen/>}
         <Outlet/>
       </main>
       <Footer />
