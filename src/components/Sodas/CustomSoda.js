@@ -12,7 +12,7 @@ const CustomSodas = () => {
       <section className={classes.customDetailBox}>
         <img src={require("../../images/blank.png")} alt="Custom Soda"></img>
         <div>
-          <h1>Custom Drink</h1>
+          <h1>Build a Custom Drink</h1>
           <p>
             Want to experiment with your own drink ideas? Well, Poppin Soda has
             you covered! Mix and match any flavors with a any base soda of your

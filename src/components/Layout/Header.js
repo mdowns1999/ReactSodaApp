@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import classes from "./Header.module.css";
 import HeaderCartButton from "./HeaderCartButton";
 import Navigation from "./Navigation";
 import { Link, useLocation } from "react-router-dom";
+import CartContext from "../../store/cart-context";
 
 const Header = (props) => {
+  const cartCtx = useContext(CartContext);
   const location = useLocation();
-  console.log(location)
+  
   let header = "";
   if(location.pathname === "/"){
     header = <section className={classes.headerHome}>
@@ -17,7 +19,7 @@ const Header = (props) => {
      ></img>
    </Link>
      <div className={classes.cartBox}>
-      <HeaderCartButton onClick={props.onShowCart} />
+     {cartCtx.items.length !== 0 && <HeaderCartButton onClick={props.onShowCart} />}
     </div>
    <div className={classes.navBox}>
    <Navigation/>
@@ -34,7 +36,7 @@ const Header = (props) => {
       </Link>
       <Navigation/>
       <div>
-        <HeaderCartButton onClick={props.onShowCart} />
+      <HeaderCartButton onClick={props.onShowCart} />
       </div>
     </section>
 

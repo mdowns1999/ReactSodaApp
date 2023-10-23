@@ -44,7 +44,7 @@ const SodaProducts = (props) => {
       <section className={classes.productOfMonth}>
         <img src={require("../../images/blank.png")} alt="Custom Soda"></img>
         <div>
-          <h1>Custom Drink</h1>
+          <h1>Try our Item of the Month!</h1>
           <p>
             Try our new Carmel Root beer Froth! This drink is a limited-time
             drink for this fall only! Try sipping on a delicious root beer mixed
