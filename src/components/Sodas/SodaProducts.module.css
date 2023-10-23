@@ -39,8 +39,8 @@
 
 .products li a {
     display:block;
-    background-color: white;
-    width:300px;
+    background-color: #f9dc66;
+    width:275px;
     height:310px;
     padding:10px;
     position:absolute;
@@ -51,12 +51,14 @@
 }
 
 .products li a:hover {
-    width:305px;
+    width:300px;
     height:450px;
 }
 
 .products li:hover a {
     box-shadow:0px 0px 5px rgba(0,0,0,0.5);
+    background-color: #ff9b42;
+    transition: .5s;
 }
 
 .products li a img {

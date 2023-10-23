@@ -1,16 +1,16 @@
 /* https://stackoverflow.com/questions/16242980/making-radio-buttons-look-like-buttons-instead */
 .productOfMonthBanner {
-  background-color: aquamarine;
-  padding: 50px;
+  background-color: #ff9b42;
+  padding: 20px;
   text-align: center;
 }
 
 .productOfMonthBanner h1 {
   border-top: 1px solid black;
   border-bottom: 1px solid black;
-  max-width: 300px;
+  max-width: 400px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 5px;
 }
 
 .productDetailSection {

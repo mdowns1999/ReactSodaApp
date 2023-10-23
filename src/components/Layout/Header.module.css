@@ -12,6 +12,10 @@
     order: 2;
 }
 
+.header a img{
+    width: 180px;
+    height: 175px;
+}
 
 .headerHome{
     display: grid;
