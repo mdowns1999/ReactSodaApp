@@ -1,11 +1,28 @@
 import React, {useState, useEffect} from "react";
 import SmartSlider from "react-smart-slider";
 import classes from './SlideShow.module.css';
+import { Link } from "react-router-dom";
 
+const captions = [{
+  title: "Welcome to Poppin Sodas",
+  description: "Popping off since 2023.",
+  link: ""
+},{
+  title: "Want something New?",
+  description: "Try our drink of the month today!",
+  link: "/products/pm1"
+},{
+  title: "Feeling Creative?",
+  description: "Customize your own soda today!",
+  link: "/products/custom"
+}]
 
 const Caption = ({ caption }) => (
     <div className={classes.caption}>
-      {caption}
+      <Link to={caption.link}>
+      <h1>{caption.title}</h1>
+      <p>{caption.description}</p>
+      </Link>
     </div>
   )
 
@@ -38,14 +55,15 @@ useEffect(() => {
             url: "https://i.imgur.com/7u8i7L1.jpg",
      
             // (Optional) Set if you want to add any content on your slide
-            childrenElem: <Caption caption="Caption 1" />
+            childrenElem: <Caption caption={captions[0]} />
           },
           {
             url: "https://i.imgur.com/E8gkF2f.jpg",
-            childrenElem: <Caption caption="Caption 2" />
+            childrenElem: <Caption caption={captions[1]} />
           },
           {
-            url: "https://i.imgur.com/t2a1zLi.jpg"
+            url: "https://i.imgur.com/t2a1zLi.jpg",
+            childrenElem: <Caption caption={captions[2]} />
           },
       ];
 
@@ -53,7 +71,7 @@ useEffect(() => {
     slides={slidesArray}
     buttonShape="square" // round or square
     height={windowHeight}
-    autoSlideInterval={5000}
+    autoSlideInterval={7000}
     autoSlide={true}
   />
 };

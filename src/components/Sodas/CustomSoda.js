@@ -14,12 +14,10 @@ const CustomSodas = () => {
         <div>
           <h1>Custom Drink</h1>
           <p>
-            A bunch of example text. A bunch of example text. A bunch of example
-            text. A bunch of example text. A bunch of example text. A bunch of
-            example text. A bunch of example text. A bunch of example text. A
-            bunch of example text. A bunch of example text. A bunch of example
-            text. A bunch of example text. A bunch of example text. A bunch of
-            example text.
+            Want to experiment with your own drink ideas? Well, Poppin Soda has
+            you covered! Mix and match any flavors with a any base soda of your
+            choosing. Just make sure not to go too crazy with all these options
+            though. Some might say you poppin off!
           </p>
         </div>
       </section>
@@ -37,8 +35,12 @@ export default CustomSodas;
 
 export async function loader() {
   let error = {
-    message:"Oh no! Looks like we have a mess on our end.  We are getting it cleaned up as fast as we can.  Please try again later!",
-    status: 500
-  }
-  return fetchHttp({url: "https://poppinsodasbackend.onrender.com/custom", error});
+    message:
+      "Oh no! Looks like we have a mess on our end.  We are getting it cleaned up as fast as we can.  Please try again later!",
+    status: 500,
+  };
+  return fetchHttp({
+    url: "https://poppinsodasbackend.onrender.com/custom",
+    error,
+  });
 }

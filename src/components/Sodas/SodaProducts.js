@@ -2,12 +2,11 @@ import React, { Fragment } from "react";
 import SodaItem from "./SodaItem";
 import classes from "./SodaProducts.module.css";
 import Button from "../UI/Button";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import fetchHttp from "../../helper/fetchHttp";
-import { useState } from "react";
 
 const SodaProducts = (props) => {
-  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
   const SODAS = useLoaderData();
   const sodaList = (
     <>
@@ -35,7 +34,10 @@ const SodaProducts = (props) => {
     </>
   );
 
-  const navigateToDrinkHandler = () => {};
+  const navigateToDrinkHandler = () => {
+
+   navigate("pm1");
+  };
 
   return (
     <Fragment>
@@ -44,12 +46,10 @@ const SodaProducts = (props) => {
         <div>
           <h1>Custom Drink</h1>
           <p>
-            A bunch of example text. A bunch of example text. A bunch of example
-            text. A bunch of example text. A bunch of example text. A bunch of
-            example text. A bunch of example text. A bunch of example text. A
-            bunch of example text. A bunch of example text. A bunch of example
-            text. A bunch of example text. A bunch of example text. A bunch of
-            example text.
+            Try our new Carmel Root beer Froth! This drink is a limited-time
+            drink for this fall only! Try sipping on a delicious root beer mixed
+            with creamy caramel and soothing vanilla flavoring. Try this tasty
+            new drink while supplies last. Order now!
           </p>
           <Button onClick={navigateToDrinkHandler}>Order Drink</Button>
         </div>

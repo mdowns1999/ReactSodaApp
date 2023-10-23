@@ -23,8 +23,8 @@ const getSodaImage = (imageName) => {
 const SodaDetail = () => {
   let navigate = useNavigate();
   const data = useLoaderData();
+  console.log(data)
   const sodaItem = data[0];
-
   const cartCtx = useContext(CartContext);
   const quantityRef = useRef();
   const [size, setSize] = useState("");
@@ -72,11 +72,11 @@ const SodaDetail = () => {
   );
   return (
     <>
-      {/* {props.itemOfMonth && (
+      {data[0].id === "pm1" && (
         <div className={classes.productOfMonthBanner}>
           <h1>Item of the Month</h1>
         </div>
-      )} */}
+      )}
       <section className={classes.productDetailSection}>
         <img src={image} alt={sodaItem.description}></img>
         <form className={classes.details} onSubmit={addtoCartHandler}>
