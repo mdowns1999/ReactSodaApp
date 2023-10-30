@@ -24,7 +24,7 @@ const OrderSummary = () => {
     let done = false;
 
     while (!done) {
-      let num = Math.floor(Math.random() * 100);
+      let num = Math.floor(Math.random() * 10000);
 
       //Check if Number is in database already
 
@@ -50,25 +50,26 @@ const OrderSummary = () => {
   //Set the total Amount
   const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
 
-  const submitOrderHandler = () => {
+  const submitOrderHandler = (event) => {
+    event.preventDefault();
     //Get Order number
     generateOrderNumber(orderNum);
     generateOrderID(orderID);
     //SEND POST REQUEST
-    let error = {
-      message: "Could not send soda order!",
-      status: 500,
-    };
-    fetchHttp({
-      url: "https://poppinsodasbackend.onrender.com/orders",
-      error,
-      method: "POST",
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Content-Type": "application/json", // this shows the expected content type
-      },
-      body: { order_id: orderID, order_num: orderNum, cart: cartCtx.items },
-    });
+    // let error = {
+    //   message: "Could not send soda order!",
+    //   status: 500,
+    // };
+    // fetchHttp({
+    //   url: "https://poppinsodasbackend.onrender.com/orders",
+    //   error,
+    //   method: "POST",
+    //   headers: {
+    //     "Access-Control-Allow-Origin": "*",
+    //     "Content-Type": "application/json", // this shows the expected content type
+    //   },
+    //   body: { order_id: orderID, order_num: orderNum, cart: cartCtx.items },
+    // });
     //Go to conformation page
     navigate("/confirm");
   };
@@ -76,11 +77,15 @@ const OrderSummary = () => {
   return (
     <div>
       <h1 className="pageBanner">Order Summary</h1>
-      <section className={classes.orderDetailSection}>
+      <form className={classes.orderDetailSection} onSubmit={submitOrderHandler}>
         <CartList cartCtx={cartCtx} />
+        <label htmlFor="order-name">Name:</label>
+          <input type="text" name="order-name" id="order-name"></input>
+          <label htmlFor="order-phone">Phone:</label>
+          <input type="tel" name="order-phone" id="order-phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"></input>
         <h2 className={classes.orderH2}>Total Balance: {totalAmount}</h2>
-        <Button onClick={submitOrderHandler}>Place Order</Button>
-      </section>
+        <Button>Place Order</Button>
+      </form>
     </div>
   );
 };

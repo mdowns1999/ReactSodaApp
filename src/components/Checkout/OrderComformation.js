@@ -5,6 +5,11 @@ import classes from "./OrderConformation.module.css";
 const OrderConformation = () => {
   const cartCtx = useContext(CartContext);
 
+  const generateOrderNumber = () => {
+    return Math.floor(Math.random() * 100000)
+  };
+
+  const orderNum = generateOrderNumber();
 
   useEffect(() => {
     if (cartCtx.items.length !== 0) {
@@ -19,7 +24,7 @@ const OrderConformation = () => {
         <h2>Thanks for ordering!</h2>
         <p>
           Your conformation number is:{" "}
-          <span className={classes.orderNum}>22353452</span>. We will call you
+          <span className={classes.orderNum}>{orderNum}</span>. We will call you
           when you order is ready for pick-up. If you have any questions or
           chnages to your order, please call us at (555) 555-555 with your name
           and confirmation number. Thank you for shopping at Poppin Sodas!

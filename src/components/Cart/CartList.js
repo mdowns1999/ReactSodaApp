@@ -1,17 +1,20 @@
 import CartItem from "./CartItem";
 
 const CartList = (props) => {
-  const removeItemHandler = (id) => {
+  const removeItemHandler = (id, event) => {
+    event.preventDefault();
     props.cartCtx.removeItem(id);
   };
 
-  const addItemHandler = (item) => {
+  const addItemHandler = (item, event) => {
+    event.preventDefault();
     if(item.amount <= 19){
       props.cartCtx.addItem({ ...item, amount: 1 });
     }
   };
 
-  const deleteItemHandler = (id) => {
+  const deleteItemHandler = (id, event) => {
+    event.preventDefault();
     props.cartCtx.deleteItem(id);
   };
 
