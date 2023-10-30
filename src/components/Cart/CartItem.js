@@ -1,8 +1,10 @@
+import priceBySize from "../../helper/priceBySize";
 import classes from "./CartItem.module.css";
 
 const CartItem = (props) => {
 
-  const price = `$${props.price.toFixed(2)}`;
+  //const price = `$${props.price.toFixed(2)}`;
+  const price = `$${priceBySize(props.price, props.size).toFixed(2)}`;
   
   return (
     <li className={classes.item}>

@@ -23,7 +23,6 @@ const getSodaImage = (imageName) => {
 const SodaDetail = () => {
   let navigate = useNavigate();
   const data = useLoaderData();
-  console.log(data)
   const sodaItem = data[0];
   const cartCtx = useContext(CartContext);
   const quantityRef = useRef();

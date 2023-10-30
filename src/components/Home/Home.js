@@ -13,7 +13,7 @@ const Home = () => {
               <h1>About Us</h1>
               <p>
                 Poppin Sodas is a soda company that is determined to provide the
-                best possible beverages possible. Poppin Sodas was founded in
+                best possible beverages possible. Poppin Sodas popped off in
                 2023 after creating and selling a small group of soda drinks to
                 several people. Due to popular demand, Poppin Sodas was formally
                 established in Rexburg Idaho, and is now slowly growing across
@@ -36,13 +36,9 @@ const Home = () => {
             alt="Poppin Soda Shop Logo"
           ></img>
           <div>
-            <h1>Our Team</h1>
+            <h1>Meet the Creators</h1>
             <p>
-              At Poppin Soda, we strive to have the best possible team members.
-              One of our goals is to provide you with excellent customer
-              service. Our team works tirelessly to come up with savory flavors
-              that will blow your mind. Interested in meeting or becoming a part
-              of the team? Click the link to learn more!
+              Poppin Soda was founded by Mike and Jami Downs.  The idea started after the couple had a group of friends try some of their soda creations.  With some convincing, the first sodas of Poppin Sodas were released to the public and became a smashing success.
             </p>
           </div>
         </section>

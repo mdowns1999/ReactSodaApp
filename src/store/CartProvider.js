@@ -3,9 +3,9 @@ import CartContext from "./cart-context";
 import React, { useReducer } from "react";
 
 
-function updateBrowserStorage(cart){
-    localStorage.setItem("cart", JSON.stringify(cart));
-}
+// function updateBrowserStorage(cart){
+//     localStorage.setItem("cart", JSON.stringify(cart));
+// }
 
 
 let defaultCartState= {
@@ -13,32 +13,31 @@ let defaultCartState= {
   totalAmount: 0,
 };
 
-if(localStorage.getItem("cart") === null){
-  defaultCartState = {
-    items: [],
-    totalAmount: 0,
-  };
-}else{
-  let cart = JSON.parse(localStorage.getItem("cart"));
+// if(localStorage.getItem("cart") === null){
+//   defaultCartState = {
+//     items: [],
+//     totalAmount: 0,
+//   };
+// }else{
+//   let cart = JSON.parse(localStorage.getItem("cart"));
 
-  if(cart.items.length === 0){
-    defaultCartState = {
-      items: [],
-      totalAmount: 0,
-    };
-  }else{
-    defaultCartState = cart;
-  }
-}
+//   if(cart.items.length === 0){
+//     defaultCartState = {
+//       items: [],
+//       totalAmount: 0,
+//     };
+//   }else{
+//     defaultCartState = cart;
+//   }
+// }
 
 
 //State is last snapshot, return new state
 const cartReducer = (state, action) => {
-  if (action.type === "ADD") {
-    action.item.price = priceBySize(action.item.price, action.item.size);
+  if (action.type === "ADD" && action.item.amount < 21) {
+    let itemPrice = priceBySize(action.item.price, action.item.size);
     const updatedTotalAmount =
-      state.totalAmount + action.item.price * action.item.amount;
-
+      state.totalAmount + itemPrice * action.item.amount;
     const existingCartItemIndex = state.items.findIndex(
       (item) => item.id === action.item.id
     );
@@ -68,7 +67,7 @@ const cartReducer = (state, action) => {
 
 
     //Update cart in case user leaves
-    updateBrowserStorage(cart);
+    //updateBrowserStorage(cart);
 
     return cart
   }
@@ -79,7 +78,9 @@ const cartReducer = (state, action) => {
     );
 
     const existingItem = state.items[existingCartItemIndex];
-    const updatedTotalAmount = state.totalAmount - existingItem.price;
+
+    let existingPrice = priceBySize(existingItem.price, existingItem.size);
+    const updatedTotalAmount = state.totalAmount - existingPrice;
     let updatedItems;
 
     if(existingItem.amount === 1){
@@ -95,9 +96,8 @@ const cartReducer = (state, action) => {
       items: updatedItems,
       totalAmount: updatedTotalAmount,
     };
-
     //Update cart in case user leaves
-    updateBrowserStorage(cart);
+    //updateBrowserStorage(cart);
 
     return cart
 
@@ -108,18 +108,27 @@ const cartReducer = (state, action) => {
       (item) => item.id === action.id
     );
     const existingItem = state.items[existingCartItemIndex];
-    const updatedTotalAmount = state.totalAmount - (existingItem.price * existingItem.amount);
+    let itemPrice = priceBySize(existingItem.price, existingItem.size);
+    const updatedTotalAmount = state.totalAmount - (itemPrice * existingItem.amount);
 
     let updatedItems = state.items.filter(item => item.id !== action.id);
 
     //Set the values to an object to return
-    let cart = {
-      items: updatedItems,
-      totalAmount: updatedTotalAmount,
-    };
+    let cart = {};
+    if(state.items.length !== 0){
+      cart = {
+        items: updatedItems,
+        totalAmount: updatedTotalAmount,
+      };
+    }else{
+      cart = {
+        items: [],
+        totalAmount: 0,
+      };
+    }
 
     //Update cart in case user leaves
-    updateBrowserStorage(cart);
+    //updateBrowserStorage(cart);
 
     return cart
 
@@ -133,7 +142,7 @@ const cartReducer = (state, action) => {
     };
 
     //Update cart in case user leaves
-    updateBrowserStorage(cart);
+    //updateBrowserStorage(cart);
 
     return cart
   }

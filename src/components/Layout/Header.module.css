@@ -12,10 +12,6 @@
     order: 2;
 }
 
-.header a img{
-    width: 180px;
-    height: 175px;
-}
 
 .headerHome{
     display: grid;
@@ -54,11 +50,6 @@
         flex-direction: row;
     }
 
-    .header img{
-       height: 125px;
-       width:150px;
-      
-    }
 
     .header div{
         order: 0;

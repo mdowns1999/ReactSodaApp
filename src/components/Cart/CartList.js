@@ -6,7 +6,9 @@ const CartList = (props) => {
   };
 
   const addItemHandler = (item) => {
-    props.cartCtx.addItem({ ...item, amount: 1 });
+    if(item.amount <= 19){
+      props.cartCtx.addItem({ ...item, amount: 1 });
+    }
   };
 
   const deleteItemHandler = (id) => {
