@@ -51,9 +51,8 @@ const SodaProducts = (props) => {
             with creamy caramel and soothing vanilla flavoring. Try this tasty
             new drink while supplies last. Order now!
           </p>
-          <Button>Order Drink</Button>
+          <Button onClick={navigateToDrinkHandler}>Order Drink</Button>
         </div>
-        {/* <SodaDetail item={itemOfTheMonth} itemOfMonth={true}/> */}
       </section>
       <section className="pageBanner">
         <h1>Products</h1>
