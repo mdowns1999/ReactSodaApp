@@ -19,11 +19,10 @@ const OrderSummary = () => {
     }
   }, [cartCtx.items.length, navigate]);
 
-
   const generateOrderNumber = () => {
     let done = false;
 
-     while (!done) {
+    while (!done) {
       let randNum = Math.floor(Math.random() * 1000) + 1;
 
       //Check if Number is in database already
@@ -42,7 +41,7 @@ const OrderSummary = () => {
 
     //Get Order number
     generateOrderNumber();
-    console.log(num)
+    console.log(num);
 
     //SEND POST REQUEST
     let error = {
@@ -57,17 +56,22 @@ const OrderSummary = () => {
         "Access-Control-Allow-Origin": "*",
         "Content-Type": "application/json", // this shows the expected content type
       },
-      body: { order_id: num, order_num: num, name: event.target.orderName.value, phone: event.target.orderPhone.value, cart: cartCtx.items },
+      body: {
+        order_id: num,
+        order_num: num,
+        name: event.target.orderName.value,
+        phone: event.target.orderPhone.value,
+        notes: event.target.orderNotes.value,
+        cart: cartCtx.items,
+      },
     });
 
     //Go to conformation page
-    promise.then(
-      (result) => {
-        if(result.ok){
-          navigate("/confirm/" + num);
-        }
-      })
-
+    promise.then((result) => {
+      if (result.ok) {
+        navigate("/confirm/" + num);
+      }
+    });
   };
 
   return (
@@ -77,16 +81,25 @@ const OrderSummary = () => {
         className={classes.orderDetailSection}
         onSubmit={submitOrderHandler}
       >
+        <div>
+          <p>Please Enter your name and number for the order.  Please include any additional thigns we need to be aware about. Also, please verify your order one last time before sending it.</p>
+        </div>
+         <div className={classes.orderInputBox}>
+          <div>
+          <label htmlFor="orderName">Name:</label>
+          <input type="text" name="orderName" id="orderName"></input>
+          <label htmlFor="orderPhone">Phone:</label>
+          <input
+            type="tel"
+            name="orderPhone"
+            id="orderPhone"
+            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+          ></input>
+          <label htmlFor="orderNotes">Notes:</label>
+          <textarea type="text" name="orderNotes" id="orderNotes"></textarea>
+          </div>
+        </div>
         <CartList cartCtx={cartCtx} />
-        <label htmlFor="orderName">Name:</label>
-        <input type="text" name="orderName" id="orderName"></input>
-        <label htmlFor="orderPhone">Phone:</label>
-        <input
-          type="tel"
-          name="orderPhone"
-          id="orderPhone"
-          pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-        ></input>
         <h2 className={classes.orderH2}>Total Balance: {totalAmount}</h2>
         <Button>Place Order</Button>
       </form>

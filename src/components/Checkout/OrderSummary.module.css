@@ -13,3 +13,40 @@
   max-width: 40%;
   margin: 10px auto;
 }
+
+.orderInputBox{
+  padding: 10px;
+  align-content: center;
+  justify-items: center;
+}
+
+.orderInputBox div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.orderInputBox label, .orderInputBox input, .orderInputBox textarea{
+  display: inline;
+  padding: 8px;
+  width: 80%;
+  font-size: 18px;
+}
+
+.orderInputBox textarea{
+  height: 200px;
+}
+
+
+.orderInputBox input, .orderInputBox textarea{
+  border-radius: 5px;
+  border: solid black 2px;
+  margin-bottom: 2em;
+}
+
+@media screen and (min-width: 768px) {
+  .orderInputBox label, .orderInputBox input, .orderInputBox textarea{
+    width: 55%;
+  }
+
+}
