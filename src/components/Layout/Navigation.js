@@ -26,6 +26,17 @@ const Navigation = () => {
             Products
           </NavLink>
         </li>
+
+        <li>
+          <NavLink
+            to="/reviews"
+            className={({ isActive }) =>
+              isActive ? classes.active : undefined
+            }
+          >
+            Reviews
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );

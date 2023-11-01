@@ -1,0 +1,19 @@
+.reviewList{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.reviewList li {
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 1em;
+    font-size: 18px;
+}
+
+@media screen and (min-width: 768px) {
+
+  }
+  
