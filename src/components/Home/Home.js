@@ -38,7 +38,10 @@ const Home = () => {
           <div>
             <h1>Meet the Creators</h1>
             <p>
-              Poppin Soda was founded by Mike and Jami Downs.  The idea started after the couple had a group of friends try some of their soda creations.  With some convincing, the first sodas of Poppin Sodas were released to the public and became a smashing success.
+              Poppin Soda was founded by Mike and Jami Downs. The idea started
+              after the couple had a group of friends try some of their soda
+              creations. With some convincing, the first sodas of Poppin Sodas
+              were released to the public and became a smashing success.
             </p>
           </div>
         </section>

@@ -10,6 +10,7 @@ const Header = (props) => {
   const location = useLocation();
   
   let header = "";
+
   if(location.pathname === "/"){
     header = <section className={classes.headerHome}>
     <Link to="/">
@@ -26,19 +27,20 @@ const Header = (props) => {
    </div>
   </section>
   } else{
-    header = 
-    <section className={classes.header}>
+    header = <>
+        <section className={classes.header}>
       <Link to="/">
         <img
           src={require("../../images/sodaLogo.png")}
           alt="Poppin Soda Shop Logo"
         ></img>
       </Link>
-      <Navigation/>
       <div>
       <HeaderCartButton onClick={props.onShowCart} />
       </div>
     </section>
+          <Navigation/>
+    </>
 
   }
 
