@@ -14,7 +14,7 @@ import ErrorPage from "./components/UserFeedback/ErrorPage";
 import OrderSummary, {loader as orderSummaryLoader} from "./components/Checkout/OrderSummary";
 import OrderConformation, {loader as orderConformationsLoader} from "./components/Checkout/OrderComformation";
 import ReviewPage, {loader as reviewPageLoader} from "./components/Reviews/ReviewPage";
-import AddReviewForm from "./components/Reviews/AddReviewForm";
+import AddReviewPage from "./components/Reviews/AddReviewPage";
 
 // https://stackoverflow.com/questions/59076687/how-can-i-deploy-react-app-on-github-pages
 const router = createBrowserRouter([
@@ -56,7 +56,7 @@ const router = createBrowserRouter([
       },
       {
         path: "reviews/add",
-        element: <AddReviewForm/>
+        element: <AddReviewPage/>
       },
       
     ]

@@ -82,22 +82,26 @@ const OrderSummary = () => {
         onSubmit={submitOrderHandler}
       >
         <div>
-          <p>Please Enter your name and number for the order.  Please include any additional thigns we need to be aware about. Also, please verify your order one last time before sending it.</p>
+          <p>
+            Please Enter your name and number for the order. Please include any
+            additional thigns we need to be aware about. Also, please verify
+            your order one last time before sending it.
+          </p>
         </div>
-         <div className={classes.orderInputBox}>
-          <div>
-          <label htmlFor="orderName">Name:</label>
-          <input type="text" name="orderName" id="orderName"></input>
-          <label htmlFor="orderPhone">Phone:</label>
-          <input
-            type="tel"
-            name="orderPhone"
-            id="orderPhone"
-            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-          ></input>
-          <label htmlFor="orderNotes">Notes:</label>
-          <textarea type="text" name="orderNotes" id="orderNotes"></textarea>
-          </div>
+        <div className={classes.orderInputBox}>
+          
+            <label htmlFor="orderName">Name:</label>
+            <input type="text" name="orderName" id="orderName"></input>
+            <label htmlFor="orderPhone">Phone:</label>
+            <input
+              type="tel"
+              name="orderPhone"
+              id="orderPhone"
+              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+            ></input>
+            <label htmlFor="orderNotes">Notes:</label>
+            <textarea type="text" name="orderNotes" id="orderNotes"></textarea>
+          
         </div>
         <CartList cartCtx={cartCtx} />
         <h2 className={classes.orderH2}>Total Balance: {totalAmount}</h2>
