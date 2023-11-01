@@ -1,5 +1,7 @@
 import Button from "../UI/Button";
 import classes from "./AddReviewForm.module.css";
+import ReviewStars from "./reviewStars";
+
 
 const AddReviewForm = () => {
 
@@ -39,7 +41,7 @@ const AddReviewForm = () => {
           <textarea name="reviewName" id="reviewNum" type="text"></textarea>
         </div>
       </div>
-
+    <ReviewStars/>
       <Button>Submit</Button>
     </form>
   );
