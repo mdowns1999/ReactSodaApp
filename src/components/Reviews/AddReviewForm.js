@@ -1,6 +1,7 @@
 import Button from "../UI/Button";
 import classes from "./AddReviewForm.module.css";
-import ReviewStars from "./reviewStars";
+import RatingStars from "./RatingStars";
+
 
 
 const AddReviewForm = () => {
@@ -14,7 +15,7 @@ const AddReviewForm = () => {
   return (
     <form className={classes.reviewForm} onSubmit={submitReviewHandler}>
       <div className={classes.reviewWrapper}>
-        <div>
+        <div className={classes.inputBox}>
           <label htmlFor="orderNum">Order Number:</label>
           <input
             name="orderNum"
@@ -25,7 +26,7 @@ const AddReviewForm = () => {
             required
           ></input>
         </div>
-        <div>
+        <div className={classes.inputBox}>
           <label htmlFor="orderName">Name:</label>
           <input
             name="reviewName"
@@ -41,7 +42,9 @@ const AddReviewForm = () => {
           <textarea name="reviewName" id="reviewNum" type="text"></textarea>
         </div>
       </div>
-    <ReviewStars/>
+
+      <RatingStars/>
+
       <Button>Submit</Button>
     </form>
   );

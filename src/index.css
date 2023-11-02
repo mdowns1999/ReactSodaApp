@@ -90,14 +90,7 @@ p{
   padding:20px;
 }
 
-/* For Stars on Review Page */
-.fa {
-  font-size: 25px;
-}
-
-.checked {
-  color: orange;
-}
+/* https://dev.to/yosraskhiri/rating-stars-in-react-js-4dfg */
 
 /* https://coolors.co/palettes/popular/restaurant 
 https://coolors.co/palettes/popular/drinks*/

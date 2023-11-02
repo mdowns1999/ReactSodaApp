@@ -11,8 +11,11 @@
   max-width: 100%;
 }
 
-.reviewForm input,
+.reviewForm .inputBox input,
+.reviewForm .inputBox input,
 .reviewForm textarea {
+  border: 1px solid black;
+  border-radius: 10px;
   display: inline;
   padding: 8px;
   width: 100%;
@@ -26,6 +29,9 @@
 .reviewForm button {
   max-width: 50%;
 }
+
+
+
 @media screen and (min-width: 768px) {
   .reviewForm .reviewWrapper {
     max-width: 70%;
