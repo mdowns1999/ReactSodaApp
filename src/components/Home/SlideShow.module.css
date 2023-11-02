@@ -1,4 +1,4 @@
-.caption{
+.caption, .welcomeCaption{
     position: absolute;
     right: 80px;
     top: 225px;
@@ -12,7 +12,8 @@
     margin: 8px;
 }
 
-.caption h1, .caption p{
+
+.caption h1, .caption p, .welcomeCaption h1, .welcomeCaption p{
     color: white;
     padding: 15px;
 }

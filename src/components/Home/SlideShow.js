@@ -17,6 +17,13 @@ const captions = [{
   link: "/products/custom"
 }]
 
+const WelcomeCaption = ({ caption }) => (
+  <div className={classes.welcomeCaption}>
+    <h1>{caption.title}</h1>
+    <p>{caption.description}</p>
+  </div>
+)
+
 const Caption = ({ caption }) => (
     <div className={classes.caption}>
       <Link to={caption.link}>
@@ -55,7 +62,7 @@ useEffect(() => {
             url: "https://i.imgur.com/7u8i7L1.jpg",
      
             // (Optional) Set if you want to add any content on your slide
-            childrenElem: <Caption caption={captions[0]} />
+            childrenElem: <WelcomeCaption caption={captions[0]} />
           },
           {
             url: "https://i.imgur.com/E8gkF2f.jpg",
