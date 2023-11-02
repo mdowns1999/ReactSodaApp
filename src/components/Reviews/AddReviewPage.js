@@ -1,7 +1,11 @@
+import { useLoaderData } from "react-router";
+import fetchHttp from "../../helper/fetchHttp";
 import AddReviewForm from "./AddReviewForm";
 import classes from './AddReviewPage.module.css';
 
 const AddReviewPage = () => {
+  let REVIEWS = useLoaderData();
+
   return (
     <>
       <section className="pageBanner">
@@ -15,9 +19,21 @@ const AddReviewPage = () => {
         </p>
       </div>
 
-      <AddReviewForm />
+      <AddReviewForm reviews={REVIEWS}/>
     </>
   );
 };
 
 export default AddReviewPage;
+
+export async function loader() {
+  let error = {
+    message:
+      "Oh no! Looks like we have a mess on our end.  We are getting it cleaned up as fast as we can.  Please try again later!",
+    status: 500,
+  };
+  return fetchHttp({
+    url: "https://poppinsodasbackend.onrender.com/reviews",
+    error,
+  });
+}

@@ -26,19 +26,19 @@
   align-items: center;
 }
 
-.orderInputBox label, .orderInputBox input, .orderInputBox textarea{
+.orderInputBox  .inputBox label, .orderInputBox  .inputBox input, .orderInputBox .inputBox textarea{
   display: inline;
   padding: 8px;
   width: 80%;
   font-size: 18px;
 }
 
-.orderInputBox textarea{
+.orderInputBox .inputBox textarea{
   height: 200px;
 }
 
 
-.orderInputBox input, .orderInputBox textarea{
+.orderInputBox .inputBox input, .orderInputBox .inputBox textarea{
   border-radius: 5px;
   border: solid black 2px;
   margin-bottom: 2em;

@@ -6,6 +6,29 @@ import CartList from "../Cart/CartList";
 import Button from "../UI/Button";
 import fetchHttp from "../../helper/fetchHttp";
 
+const postOrder = (event, orderNumber, cart) => {
+  let error = {
+    message: "Could not send soda order!",
+    status: 500,
+  };
+  return fetchHttp({
+    url: "https://poppinsodasbackend.onrender.com/orders",
+    error,
+    method: "POST",
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Content-Type": "application/json", // this shows the expected content type
+    },
+    body: {
+      order_id: orderNumber,
+      order_num: orderNumber,
+      name: event.target.orderName.value,
+      phone: event.target.orderPhone.value,
+      notes: event.target.orderNotes.value,
+      cart: cart,
+    },
+  });
+};
 const OrderSummary = () => {
   let num = 0;
   const cartCtx = useContext(CartContext);
@@ -44,27 +67,28 @@ const OrderSummary = () => {
     console.log(num);
 
     //SEND POST REQUEST
-    let error = {
-      message: "Could not send soda order!",
-      status: 500,
-    };
-    let promise = fetchHttp({
-      url: "https://poppinsodasbackend.onrender.com/orders",
-      error,
-      method: "POST",
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Content-Type": "application/json", // this shows the expected content type
-      },
-      body: {
-        order_id: num,
-        order_num: num,
-        name: event.target.orderName.value,
-        phone: event.target.orderPhone.value,
-        notes: event.target.orderNotes.value,
-        cart: cartCtx.items,
-      },
-    });
+    let promise = postOrder(event, num, cartCtx.items);
+    // let error = {
+    //   message: "Could not send soda order!",
+    //   status: 500,
+    // };
+    // let promise = fetchHttp({
+    //   url: "https://poppinsodasbackend.onrender.com/orders",
+    //   error,
+    //   method: "POST",
+    //   headers: {
+    //     "Access-Control-Allow-Origin": "*",
+    //     "Content-Type": "application/json", // this shows the expected content type
+    //   },
+    //   body: {
+    //     order_id: num,
+    //     order_num: num,
+    //     name: event.target.orderName.value,
+    //     phone: event.target.orderPhone.value,
+    //     notes: event.target.orderNotes.value,
+    //     cart: cartCtx.items,
+    //   },
+    // });
 
     //Go to conformation page
     promise.then((result) => {
@@ -89,19 +113,24 @@ const OrderSummary = () => {
           </p>
         </div>
         <div className={classes.orderInputBox}>
-          
+          <div className={classes.inputBox}>
             <label htmlFor="orderName">Name:</label>
-            <input type="text" name="orderName" id="orderName"></input>
+            <input type="text" name="orderName" id="orderName" required></input>
+          </div>
+          <div className={classes.inputBox}>
             <label htmlFor="orderPhone">Phone:</label>
             <input
               type="tel"
               name="orderPhone"
               id="orderPhone"
               pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+              required
             ></input>
+          </div>
+          <div className={classes.inputBox}>
             <label htmlFor="orderNotes">Notes:</label>
             <textarea type="text" name="orderNotes" id="orderNotes"></textarea>
-          
+          </div>
         </div>
         <CartList cartCtx={cartCtx} />
         <h2 className={classes.orderH2}>Total Balance: {totalAmount}</h2>

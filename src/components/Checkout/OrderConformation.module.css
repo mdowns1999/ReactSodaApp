@@ -1,14 +1,10 @@
-.thankyou {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 5px;
+.orderNum{
+    text-align: center;
+    padding: 10px;
 }
 
-.thankyou h2 {
-  text-align: center;
-  padding: 10px;
-}
-
-.orderNum {
-  font-weight: bold;
-}
+.orderNum span {
+    font-weight: bold;
+    font-size: 22px;
+  }
+  

@@ -1,14 +1,19 @@
 import { useContext, useEffect } from "react";
 import CartContext from "../../store/cart-context";
-import classes from "./OrderConformation.module.css";
 import { useLoaderData } from "react-router-dom";
 import fetchHttp from "../../helper/fetchHttp";
+import ThankYouPage from "../Layout/Thankyou";
+import classes from './OrderConformation.module.css';
 
 const OrderConformation = () => {
   const cartCtx = useContext(CartContext);
   const data = useLoaderData();
   let orderNum = data[0].order_num;
   let orderName = data[0].name;
+  let message = `${orderName}, thank you for your order! We will call you
+  when you order is ready for pick-up. If you have any questions or
+  changes to your order, please call us at (555) 555-555 with your name
+  and confirmation number. Thank you for shopping at Poppin Sodas!`;
   
   useEffect(() => {
     if (cartCtx.items.length !== 0) {
@@ -17,19 +22,8 @@ const OrderConformation = () => {
   });
 
   return (
-    <div>
-      <h1 className="pageBanner">Order Conformation</h1>
-      <div className={classes.thankyou}>
-        <h2>{orderName}, thanks for ordering!</h2>
-        <p>
-          Your conformation number is:{" "}
-          <span className={classes.orderNum}>{orderNum}</span>. We will call you
-          when you order is ready for pick-up. If you have any questions or
-          changes to your order, please call us at (555) 555-555 with your name
-          and confirmation number. Thank you for shopping at Poppin Sodas!
-        </p>
-      </div>
-    </div>
+    <><ThankYouPage title={"Order Conformation"} message={message}/>
+    <p className={classes.orderNum}>Your order number is: <span>{orderNum}</span>.</p></>
   );
 };
 
