@@ -4,7 +4,7 @@ import AddReviewForm from "./AddReviewForm";
 import classes from './AddReviewPage.module.css';
 
 const AddReviewPage = () => {
-  let REVIEWS = useLoaderData();
+  let ORDERS = useLoaderData();
 
   return (
     <>
@@ -19,7 +19,7 @@ const AddReviewPage = () => {
         </p>
       </div>
 
-      <AddReviewForm reviews={REVIEWS}/>
+      <AddReviewForm orders={ORDERS}/>
     </>
   );
 };
@@ -33,7 +33,7 @@ export async function loader() {
     status: 500,
   };
   return fetchHttp({
-    url: "https://poppinsodasbackend.onrender.com/reviews",
+    url: "https://poppinsodasbackend.onrender.com/orders",
     error,
   });
 }

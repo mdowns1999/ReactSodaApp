@@ -64,8 +64,7 @@ const OrderSummary = () => {
 
     //Get Order number
     generateOrderNumber();
-    console.log(num);
-
+    
     //SEND POST REQUEST
     let promise = postOrder(event, num, cartCtx.items);
     // let error = {

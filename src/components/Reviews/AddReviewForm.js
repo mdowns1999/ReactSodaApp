@@ -4,10 +4,15 @@ import RatingStars from "./RatingStars";
 import fetchHttp from "../../helper/fetchHttp";
 import { useNavigate } from "react-router";
 
-const hasOrder = (reviews, orderNum) => {
+const hasOrder = (orders, orderNum) => {
   //Filter the array to just the order numbers
-  return reviews.filter((review) => review.id === orderNum).length > 0;
+  console.log(orders)
+  return orders.find((order) => order.order_num === orderNum);
 };
+
+const getName = (orders, orderNum) => {
+  return orders.filter((order) => order.order_num === orderNum);
+}
 
 const postReview = (orderNum, message, name, rating) => {
   let error = {
@@ -36,16 +41,17 @@ const AddReviewForm = (props) => {
 
   const submitReviewHandler = (event) => {
     event.preventDefault();
-    console.log(+event.target.orderNum.value);
-    if (hasOrder(props.reviews, +event.target.orderNum.value)) {
+     if (hasOrder(props.orders, +event.target.orderNum.value)) {
+      //Get the name of the order
+      let order = getName(props.orders, +event.target.orderNum.value);
       //SEND POST REQUEST
-     let promise = postReview(+event.target.orderNum.value, event.target.comments.value,event.target.reviewName.value, 5 );
+     let promise = postReview(+event.target.orderNum.value, event.target.comments.value,order[0].name, 5 );
       promise.then((result) => {
         if (result.ok) {
           navigate("/reviews");
         }
       });
-    }
+     }
   };
 
   return (
@@ -57,17 +63,6 @@ const AddReviewForm = (props) => {
             name="orderNum"
             id="orderNum"
             type="number"
-            min="1"
-            max="10000"
-            required
-          ></input>
-        </div>
-        <div className={classes.inputBox}>
-          <label htmlFor="reviewName">Name:</label>
-          <input
-            name="reviewName"
-            id="reviewNum"
-            type="text"
             min="1"
             max="10000"
             required
