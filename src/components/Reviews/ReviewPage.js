@@ -7,7 +7,7 @@ import fetchHttp from "../../helper/fetchHttp";
 const ReviewPage = () => {
   const navigate = useNavigate();
   const REVIEWS = useLoaderData();
-
+ 
   const navigateToAddReviewHandler = () => {
     navigate("add");
   };

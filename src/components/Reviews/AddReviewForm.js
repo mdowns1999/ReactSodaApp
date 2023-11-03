@@ -3,10 +3,10 @@ import classes from "./AddReviewForm.module.css";
 import RatingStars from "./RatingStars";
 import fetchHttp from "../../helper/fetchHttp";
 import { useNavigate } from "react-router";
+import { useState } from "react";
 
 const hasOrder = (orders, orderNum) => {
   //Filter the array to just the order numbers
-  console.log(orders)
   return orders.find((order) => order.order_num === orderNum);
 };
 
@@ -14,7 +14,12 @@ const getName = (orders, orderNum) => {
   return orders.filter((order) => order.order_num === orderNum);
 }
 
-const postReview = (orderNum, message, name, rating) => {
+const getDate = () => {
+  let date = new Date()
+  return (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear();
+}
+
+const postReview = (orderNum, message, name, rating, date) => {
   let error = {
     message: "Could not send soda order!",
     status: 500,
@@ -31,26 +36,33 @@ const postReview = (orderNum, message, name, rating) => {
       id: orderNum,
       name: name,
       rating: rating,
-      message: message
+      message: message,
+      date: date
     },
   });
 };
 
 const AddReviewForm = (props) => {
   const navigate = useNavigate();
+  const [rating, setRating] = useState(0);
 
   const submitReviewHandler = (event) => {
     event.preventDefault();
      if (hasOrder(props.orders, +event.target.orderNum.value)) {
       //Get the name of the order
       let order = getName(props.orders, +event.target.orderNum.value);
+      //get the current date
+      let date = getDate();
+
       //SEND POST REQUEST
-     let promise = postReview(+event.target.orderNum.value, event.target.comments.value,order[0].name, 5 );
+     let promise = postReview(+event.target.orderNum.value, event.target.comments.value,order[0].name, rating, date);
       promise.then((result) => {
         if (result.ok) {
           navigate("/reviews");
         }
       });
+     }else{
+      alert("That is not a valid Order Number! Please Check your number or make an order.")
      }
   };
 
@@ -74,7 +86,7 @@ const AddReviewForm = (props) => {
         </div>
       </div>
 
-      <RatingStars />
+      <RatingStars setRating={setRating}/>
 
       <Button>Submit</Button>
     </form>

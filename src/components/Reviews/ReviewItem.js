@@ -6,7 +6,7 @@ const ReviewItem = (props) => {
     <section className={classes.ReviewHeader}>
       <div><Star value={+props.rating} readOnly={true}/></div>
       <h2>{props.name}</h2>
-      <p>1/15/2023</p>
+      <p>{props.date}</p>
     </section>
     <section className={classes.ReviewTextBox}>
       <p>

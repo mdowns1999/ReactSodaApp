@@ -8,8 +8,9 @@ const ReviewList = (props) => {
       name={review.name}
       rating={review.rating}
       message={review.message}
+      date={review.date}
     />
-  ));
+  )).reverse();
   return <ul className={classes.reviewList}>{reviewItems}</ul>;
 };
 
