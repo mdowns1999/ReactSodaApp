@@ -42,7 +42,7 @@ const SodaProducts = (props) => {
   return (
     <Fragment>
       <section className={classes.productOfMonth}>
-        <img src={require("../../images/blank.png")} alt="Custom Soda"></img>
+        <img src={require("../../images/root.jpg")} alt="Custom Soda"></img>
         <div>
           <h1>Try our Item of the Month!</h1>
           <p>

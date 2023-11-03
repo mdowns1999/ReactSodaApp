@@ -4,17 +4,24 @@ import { Link } from "react-router-dom";
 
 const getSodaImage = (imageName) => {
   switch (imageName) {
-    case "Cherry":
-      return require("../../images/blank.png");
-    case "Orange":
-      return require("../../images/blank.png");
+    case "Tropical Sprite":
+      return require("../../images/tropical.jpg");
+    case "Basic White Girl":
+      return require("../../images/whiteGirl.jpg");
+    case "Mountain Smash":
+      return require("../../images/mountain.jpg");
+    case "Dirty Diet Coke":
+      return require("../../images/dirty.jpg");
+    case "Carmel Root Beer":
+      return require("../../images/root.jpg");
     default:
       return require("../../images/blank.png");
   }
 };
 
 const SodaItem = (props) => {
-  let image = getSodaImage(props.image);
+  console.log(props.image);
+  let image = getSodaImage(props.name);
 
   const scrollToTop = () => {
     if (props.id === "custom") {
@@ -30,9 +37,7 @@ const SodaItem = (props) => {
         <img src={image} alt={props.description}></img>
         <div>
           <h2>{props.name}</h2>
-          <p>
-            {props.description}
-          </p>
+          <p>{props.description}</p>
         </div>
       </Link>
     </ProductItem>

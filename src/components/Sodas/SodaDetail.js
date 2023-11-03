@@ -11,10 +11,16 @@ import priceBySize from "../../helper/priceBySize";
 
 const getSodaImage = (imageName) => {
   switch (imageName) {
-    case "Cherry":
-      return require("../../images/blank.png");
-    case "Orange":
-      return require("../../images/blank.png");
+    case "Tropical Sprite":
+      return require("../../images/tropical.jpg");
+    case "Basic White Girl":
+      return require("../../images/whiteGirl.jpg");
+    case "Mountain Smash":
+      return require("../../images/mountain.jpg");
+    case "Dirty Diet Coke":
+      return require("../../images/dirty.jpg");
+    case "Carmel Root Beer":
+      return require("../../images/root.jpg");
     default:
       return require("../../images/blank.png");
   }
@@ -58,7 +64,7 @@ const SodaDetail = () => {
     )} per ${size}oz drink`;
   }
 
-  const image = getSodaImage(sodaItem.imgRoute);
+  const image = getSodaImage(sodaItem.name);
 
   let ingredientsList = (
     <ul className={classes.ingredients}>
