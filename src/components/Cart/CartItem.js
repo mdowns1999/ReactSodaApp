@@ -1,15 +1,16 @@
 import priceBySize from "../../helper/priceBySize";
+import getSodaImage from "../../helper/getSodaImage";
 import classes from "./CartItem.module.css";
 
 const CartItem = (props) => {
 
   //const price = `$${props.price.toFixed(2)}`;
   const price = `$${priceBySize(props.price, props.size).toFixed(2)}`;
-  
+  const image = getSodaImage(props.name);
   return (
     <li className={classes.item}>
       <img
-          src={require("../../images/blank.png")}
+          src={image}
           alt={props.description}
           className={classes.itemImg}
         ></img>
