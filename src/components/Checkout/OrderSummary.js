@@ -64,30 +64,9 @@ const OrderSummary = () => {
 
     //Get Order number
     generateOrderNumber();
-    
+
     //SEND POST REQUEST
     let promise = postOrder(event, num, cartCtx.items);
-    // let error = {
-    //   message: "Could not send soda order!",
-    //   status: 500,
-    // };
-    // let promise = fetchHttp({
-    //   url: "https://poppinsodasbackend.onrender.com/orders",
-    //   error,
-    //   method: "POST",
-    //   headers: {
-    //     "Access-Control-Allow-Origin": "*",
-    //     "Content-Type": "application/json", // this shows the expected content type
-    //   },
-    //   body: {
-    //     order_id: num,
-    //     order_num: num,
-    //     name: event.target.orderName.value,
-    //     phone: event.target.orderPhone.value,
-    //     notes: event.target.orderNotes.value,
-    //     cart: cartCtx.items,
-    //   },
-    // });
 
     //Go to conformation page
     promise.then((result) => {
