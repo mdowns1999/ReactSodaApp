@@ -33,26 +33,18 @@
   }
 }
 
-
 @media screen and (min-width: 768px) {
-  .modal{
-      width:90%;
-      left: 5%;
-      padding: 0.5rem;
+  .modal {
+    width: 90%;
+    left: 5%;
+    padding: 0.5rem;
   }
 }
 
-/* @media screen and (min-width: 1000px) {
-  .modal{
-      width:78%;
-      left:10%;
-  }
-} */
-
 @media screen and (min-width: 1200px) {
-  .modal{
-      width:60%;
-      left:20%;
-      padding: 1rem;
+  .modal {
+    width: 60%;
+    left: 20%;
+    padding: 1rem;
   }
 }

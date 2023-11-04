@@ -23,14 +23,12 @@
   margin-bottom: 2em;
   margin-top: 5px;
 }
-.reviewForm textarea{
-    height: 200px;
+.reviewForm textarea {
+  height: 200px;
 }
 .reviewForm button {
   max-width: 50%;
 }
-
-
 
 @media screen and (min-width: 768px) {
   .reviewForm .reviewWrapper {

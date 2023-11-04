@@ -6,6 +6,7 @@ import getSodaImage from "../../helper/getSodaImage";
 const SodaItem = (props) => {
   let image = getSodaImage(props.name);
 
+  //Scroll to the top of the screen when we navigate away
   const scrollToTop = () => {
     if (props.id === "custom") {
       window.scrollTo(0, 0);

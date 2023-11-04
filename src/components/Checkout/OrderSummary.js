@@ -42,6 +42,7 @@ const OrderSummary = () => {
     }
   }, [cartCtx.items.length, navigate]);
 
+  //Generate an order number and make sure that number is not in the database already!
   const generateOrderNumber = () => {
     let done = false;
 

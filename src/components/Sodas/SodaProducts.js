@@ -35,8 +35,7 @@ const SodaProducts = (props) => {
   );
 
   const navigateToDrinkHandler = () => {
-
-   navigate("pm1");
+    navigate("pm1");
   };
 
   return (

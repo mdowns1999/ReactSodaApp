@@ -1,3 +1,4 @@
+/* This file helped me figure out the look and function of my buttons: https://stackoverflow.com/questions/16242980/making-radio-buttons-look-like-buttons-instead */
 import RadioButton from "../UI/RadioButton";
 
 const SizeSelect = (props) => {

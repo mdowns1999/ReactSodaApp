@@ -1,7 +1,7 @@
 import { useLoaderData } from "react-router";
 import fetchHttp from "../../helper/fetchHttp";
 import AddReviewForm from "./AddReviewForm";
-import classes from './AddReviewPage.module.css';
+import classes from "./AddReviewPage.module.css";
 
 const AddReviewPage = () => {
   let ORDERS = useLoaderData();
@@ -19,7 +19,7 @@ const AddReviewPage = () => {
         </p>
       </div>
 
-      <AddReviewForm orders={ORDERS}/>
+      <AddReviewForm orders={ORDERS} />
     </>
   );
 };

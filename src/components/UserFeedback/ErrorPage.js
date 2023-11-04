@@ -9,6 +9,7 @@ const ErrorPage = () => {
   let title = "An error Occurred";
   let message = "Something went wrong!  Please try again later.";
 
+  //This will help us determine what kind of error Page we show the user.
   if (error.status === 500) {
     message = JSON.parse(error.data).message;
   } else if (error.status === 404) {

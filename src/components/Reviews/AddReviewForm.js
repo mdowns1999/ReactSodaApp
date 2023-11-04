@@ -6,18 +6,18 @@ import { useNavigate } from "react-router";
 import { useState } from "react";
 
 const hasOrder = (orders, orderNum) => {
-  //Filter the array to just the order numbers
+  //Filter the array to just the order numberwe need.
   return orders.find((order) => order.order_num === orderNum);
 };
 
 const getName = (orders, orderNum) => {
   return orders.filter((order) => order.order_num === orderNum);
-}
+};
 
 const getDate = () => {
-  let date = new Date()
-  return (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear();
-}
+  let date = new Date();
+  return date.getMonth() + 1 + "/" + date.getDate() + "/" + date.getFullYear();
+};
 
 const postReview = (orderNum, message, name, rating, date) => {
   let error = {
@@ -37,7 +37,7 @@ const postReview = (orderNum, message, name, rating, date) => {
       name: name,
       rating: rating,
       message: message,
-      date: date
+      date: date,
     },
   });
 };
@@ -48,22 +48,33 @@ const AddReviewForm = (props) => {
 
   const submitReviewHandler = (event) => {
     event.preventDefault();
-     if (hasOrder(props.orders, +event.target.orderNum.value)) {
+    if (hasOrder(props.orders, +event.target.orderNum.value)) {
       //Get the name of the order
       let order = getName(props.orders, +event.target.orderNum.value);
       //get the current date
       let date = getDate();
 
       //SEND POST REQUEST
-     let promise = postReview(+event.target.orderNum.value, event.target.comments.value,order[0].name, rating, date);
+      let promise = postReview(
+        +event.target.orderNum.value,
+        event.target.comments.value,
+        order[0].name,
+        rating,
+        date
+      );
       promise.then((result) => {
         if (result.ok) {
+          //Reset the form values then navigate away.
+          event.target.orderNum.value = "";
+          event.target.comments.value = "";
           navigate("/reviews");
         }
       });
-     }else{
-      alert("That is not a valid Order Number! Please Check your number or make an order.")
-     }
+    } else {
+      alert(
+        "That is not a valid Order Number! Please Check your number or make an order."
+      );
+    }
   };
 
   return (
@@ -86,7 +97,7 @@ const AddReviewForm = (props) => {
         </div>
       </div>
 
-      <RatingStars setRating={setRating}/>
+      <RatingStars setRating={setRating} />
 
       <Button>Submit</Button>
     </form>

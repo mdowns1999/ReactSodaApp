@@ -5,14 +5,13 @@ import ReviewList from "./ReviewList";
 import fetchHttp from "../../helper/fetchHttp";
 
 const ReviewPage = () => {
+  //Variables
   const navigate = useNavigate();
   const REVIEWS = useLoaderData();
- 
+
   const navigateToAddReviewHandler = () => {
     navigate("add");
   };
-  
- 
 
   return (
     <>
@@ -30,7 +29,7 @@ const ReviewPage = () => {
       </div>
 
       <div className={classes.reviewListBox}>
-        <ReviewList reviews={REVIEWS}/>
+        <ReviewList reviews={REVIEWS} />
       </div>
     </>
   );
@@ -39,13 +38,13 @@ const ReviewPage = () => {
 export default ReviewPage;
 
 export async function loader() {
-    let error = {
-      message:
-        "Oh no! Looks like we have a mess on our end.  We are getting it cleaned up as fast as we can.  Please try again later!",
-      status: 500,
-    };
-    return fetchHttp({
-      url: "https://poppinsodasbackend.onrender.com/reviews",
-      error,
-    });
-  }
+  let error = {
+    message:
+      "Oh no! Looks like we have a mess on our end.  We are getting it cleaned up as fast as we can.  Please try again later!",
+    status: 500,
+  };
+  return fetchHttp({
+    url: "https://poppinsodasbackend.onrender.com/reviews",
+    error,
+  });
+}

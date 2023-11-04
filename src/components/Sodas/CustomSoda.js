@@ -4,9 +4,9 @@ import CustomSodaForm from "./CustomSodaForm";
 import fetchHttp from "../../helper/fetchHttp";
 
 const CustomSodas = () => {
+  //Variables
   const customSodaLists = useLoaderData();
 
-  console.log(customSodaLists[0].sodaFlavors);
   return (
     <>
       <section className={classes.customDetailBox}>

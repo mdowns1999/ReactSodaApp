@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 import priceBySize from "../../helper/priceBySize";
 
 const CustomSodaForm = (props) => {
+  //Variables
   const [totalCost, setPrice] = useState(0);
   const [SyrupTotal, setSyrupTotal] = useState(0);
   const [sodaTotal, setSodaTotal] = useState(0);
@@ -22,8 +23,9 @@ const CustomSodaForm = (props) => {
   const cartCtx = useContext(CartContext);
   let navigate = useNavigate();
 
+  //Figure out the total price of the drinks.
   useEffect(() => {
-    let sodaTotalWithSize = priceBySize(sodaTotal, size)
+    let sodaTotalWithSize = priceBySize(sodaTotal, size);
     setPrice(SyrupTotal + sodaTotalWithSize);
   }, [totalCost, SyrupTotal, sodaTotal, size]);
 

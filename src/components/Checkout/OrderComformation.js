@@ -7,6 +7,7 @@ import classes from "./OrderConformation.module.css";
 import Button from "../UI/Button";
 
 const OrderConformation = () => {
+  //Variables
   const navigate = useNavigate();
   const cartCtx = useContext(CartContext);
   const data = useLoaderData();
@@ -17,6 +18,7 @@ const OrderConformation = () => {
   changes to your order, please call us at (555) 555-555 with your name
   and confirmation number. Thank you for shopping at Poppin Sodas! We hope to see you again soon!`;
 
+  //Clear the cart since the order is submitted.
   useEffect(() => {
     if (cartCtx.items.length !== 0) {
       cartCtx.clearCart();

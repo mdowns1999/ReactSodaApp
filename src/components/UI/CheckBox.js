@@ -11,7 +11,7 @@ const CheckBox = (props) => {
   //This function will have the lsit of ingredients needed
   function updateChosenList(pos, updatedCheckedState) {
     updatedCheckedState.forEach((item, index) => {
-      if(item){
+      if (item) {
         selectedList.push(props.list[index].name);
       }
     });
@@ -23,15 +23,13 @@ const CheckBox = (props) => {
       index === pos ? !item : item
     );
 
-    updateChosenList(pos, updatedCheckedState );
+    updateChosenList(pos, updatedCheckedState);
     setCheckedState(updatedCheckedState);
 
     //Calculate total price for toppings
     let totalPrice = updatedCheckedState.reduce(
       (total, currentState, index) => {
         if (currentState === true) {
-          //Update the appropriate css class
-
           //return the total
           return total + props.list[index].price;
         }
@@ -39,7 +37,7 @@ const CheckBox = (props) => {
       },
       0
     );
-   props.setTotalValue(totalPrice);
+    props.setTotalValue(totalPrice);
     props.setSelectedList(selectedList);
   };
 

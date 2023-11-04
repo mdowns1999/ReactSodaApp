@@ -6,30 +6,33 @@ import Footer from "./Footer";
 import Cart from "../Cart/Cart";
 import LoadingScreen from "../UserFeedback/LoadingScreen";
 
-function RootLayout(){
-    const navigation = useNavigation();
-    const [cartIsShown, setCartIsShown] = useState(false);
+function RootLayout() {
+  //Variables
+  const navigation = useNavigation();
+  const [cartIsShown, setCartIsShown] = useState(false);
 
+  const showCartHandler = () => {
+    setCartIsShown(true);
+  };
 
-    const showCartHandler = () => {
-      setCartIsShown(true);
-    };
-  
-    const hideCartHandler = () => {
-      setCartIsShown(false);
-    };
+  const hideCartHandler = () => {
+    setCartIsShown(false);
+  };
 
-    return <>
-    <CartProvider>
-      {cartIsShown && <Cart onClose={hideCartHandler} />}
-      <Header onShowCart={showCartHandler} />
-      <main>
-        {navigation.state === 'loading' && <LoadingScreen/>}
-        <Outlet/>
-      </main>
-      <Footer />
-    </CartProvider>
+  return (
+    <>
+      <CartProvider>
+        {cartIsShown && <Cart onClose={hideCartHandler} />}
+        <Header onShowCart={showCartHandler} />
+        <main>
+          {/* {If the cart is lading, show the Loading Screen!} */}
+          {navigation.state === "loading" && <LoadingScreen />}
+          <Outlet />
+        </main>
+        <Footer />
+      </CartProvider>
     </>
+  );
 }
 
 export default RootLayout;

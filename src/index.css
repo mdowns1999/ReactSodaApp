@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Source+Sans+3&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Source+Sans+3&display=swap");
 :root {
   --primaryColor: #0fa3b1;
   --secondaryColor: #d9e5d6;
@@ -6,7 +6,7 @@
   --accentTwo: #ff9b42;
 }
 
-*{
+* {
   box-sizing: border-box;
 }
 
@@ -15,57 +15,63 @@ body {
   background-color: #f4f4f4;
 }
 
-img{
+img {
   max-width: 100%;
 }
 
-html{
-  height:100%;
-  font-family: 'Montserrat', sans-serif;
+html {
+  height: 100%;
+  font-family: "Montserrat", sans-serif;
   font-size: 20px;
 }
 
-
-main{
+main {
   margin-bottom: 100px;
 }
 
-
-h1, h2 ,h3 ,h4, p, a, ul, li {
-  margin:0;
+h1,
+h2,
+h3,
+h4,
+p,
+a,
+ul,
+li {
+  margin: 0;
   padding: 0;
 }
 
-h1, h2, h3, h4 {
-  font-family: 'Source Sans 3', sans-serif;
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Source Sans 3", sans-serif;
 }
 
-a{
+a {
   text-decoration: none;
-  color:black;
+  color: black;
 }
 
-p{
+p {
   line-height: 1.5;
   letter-spacing: 2px;
 }
 
-.deleteIcon{
+.deleteIcon {
   font-size: 24px;
   cursor: pointer;
 }
 
-.deleteIcon:hover{
-  color:rgb(192, 1, 1);
-
+.deleteIcon:hover {
+  color: rgb(192, 1, 1);
 }
 
-.deleteIcon:active{
-  color:var(--accentOne, white);
-
+.deleteIcon:active {
+  color: var(--accentOne, white);
 }
 
-.successModal{
+.successModal {
   position: fixed;
   top: 10vh;
   left: 5%;
@@ -77,20 +83,18 @@ p{
   z-index: 1000;
 }
 
-.close{
-  display:none;
+.close {
+  display: none;
 }
 
-.pageBanner{
+.pageBanner {
   text-align: center;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   max-width: 300px;
   margin: 2em auto;
-  padding:20px;
+  padding: 20px;
 }
-
-/* https://dev.to/yosraskhiri/rating-stars-in-react-js-4dfg */
 
 /* https://coolors.co/palettes/popular/restaurant 
 https://coolors.co/palettes/popular/drinks*/

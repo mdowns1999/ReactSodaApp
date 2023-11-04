@@ -1,4 +1,3 @@
-/* https://stackoverflow.com/questions/16242980/making-radio-buttons-look-like-buttons-instead */
 .productOfMonthBanner {
   background-color: #ff9b42;
   padding: 20px;
@@ -43,15 +42,14 @@ form {
   margin: 20px 0;
 }
 
-.ingredients li{
- list-style: none;
- padding: 5px;
+.ingredients li {
+  list-style: none;
+  padding: 5px;
 }
 
-.ingredients li span{
+.ingredients li span {
   font-weight: bold;
- }
- 
+}
 
 @media screen and (min-width: 375px) {
   form {

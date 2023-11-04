@@ -2,13 +2,11 @@ import priceBySize from "../helper/priceBySize";
 import CartContext from "./cart-context";
 import React, { useReducer } from "react";
 
-
 // function updateBrowserStorage(cart){
 //     localStorage.setItem("cart", JSON.stringify(cart));
 // }
 
-
-let defaultCartState= {
+let defaultCartState = {
   items: [],
   totalAmount: 0,
 };
@@ -31,7 +29,6 @@ let defaultCartState= {
 //   }
 // }
 
-
 //State is last snapshot, return new state
 const cartReducer = (state, action) => {
   if (action.type === "ADD" && action.item.amount < 21) {
@@ -47,7 +44,6 @@ const cartReducer = (state, action) => {
     let updatedItems;
 
     if (exsitingCartItem) {
-  
       const updatedItem = {
         ...exsitingCartItem,
         amount: exsitingCartItem.amount + action.item.amount,
@@ -65,14 +61,13 @@ const cartReducer = (state, action) => {
       totalAmount: updatedTotalAmount,
     };
 
-
     //Update cart in case user leaves
     //updateBrowserStorage(cart);
 
-    return cart
+    return cart;
   }
 
-  if(action.type === "REMOVE"){
+  if (action.type === "REMOVE") {
     const existingCartItemIndex = state.items.findIndex(
       (item) => item.id === action.id
     );
@@ -83,10 +78,10 @@ const cartReducer = (state, action) => {
     const updatedTotalAmount = state.totalAmount - existingPrice;
     let updatedItems;
 
-    if(existingItem.amount === 1){
-      updatedItems = state.items.filter(item => item.id !== action.id);
-    }else{
-      const updatedItem = {...existingItem, amount: existingItem.amount - 1};
+    if (existingItem.amount === 1) {
+      updatedItems = state.items.filter((item) => item.id !== action.id);
+    } else {
+      const updatedItem = { ...existingItem, amount: existingItem.amount - 1 };
       updatedItems = [...state.items];
       updatedItems[existingCartItemIndex] = updatedItem;
     }
@@ -99,28 +94,28 @@ const cartReducer = (state, action) => {
     //Update cart in case user leaves
     //updateBrowserStorage(cart);
 
-    return cart
-
+    return cart;
   }
 
-  if(action.type === "DELETE"){
+  if (action.type === "DELETE") {
     const existingCartItemIndex = state.items.findIndex(
       (item) => item.id === action.id
     );
     const existingItem = state.items[existingCartItemIndex];
     let itemPrice = priceBySize(existingItem.price, existingItem.size);
-    const updatedTotalAmount = state.totalAmount - (itemPrice * existingItem.amount);
+    const updatedTotalAmount =
+      state.totalAmount - itemPrice * existingItem.amount;
 
-    let updatedItems = state.items.filter(item => item.id !== action.id);
+    let updatedItems = state.items.filter((item) => item.id !== action.id);
 
     //Set the values to an object to return
     let cart = {};
-    if(state.items.length !== 0){
+    if (state.items.length !== 0) {
       cart = {
         items: updatedItems,
         totalAmount: updatedTotalAmount,
       };
-    }else{
+    } else {
       cart = {
         items: [],
         totalAmount: 0,
@@ -130,11 +125,10 @@ const cartReducer = (state, action) => {
     //Update cart in case user leaves
     //updateBrowserStorage(cart);
 
-    return cart
-
+    return cart;
   }
 
-  if(action.type === "CLEAR"){
+  if (action.type === "CLEAR") {
     //Set the values to an object to return
     let cart = {
       items: [],
@@ -144,7 +138,7 @@ const cartReducer = (state, action) => {
     //Update cart in case user leaves
     //updateBrowserStorage(cart);
 
-    return cart
+    return cart;
   }
 
   return defaultCartState;
@@ -175,13 +169,13 @@ const CartProvider = (props) => {
       type: "DELETE",
       id: id,
     });
-  }
+  };
 
-const clearEntireCart = () => {
-  dispatchCartAction({
-    type: "CLEAR"
-});
-}
+  const clearEntireCart = () => {
+    dispatchCartAction({
+      type: "CLEAR",
+    });
+  };
 
   //This object will actually update with the values we need
   const cartContext = {
@@ -190,7 +184,7 @@ const clearEntireCart = () => {
     addItem: addItemToCartHandler,
     removeItem: removeItemFromCartHandler,
     deleteItem: deleteEntireItemFromCart,
-    clearCart: clearEntireCart
+    clearCart: clearEntireCart,
   };
   //This provider will allow us to wrap anything that will need the cart.
   return (
