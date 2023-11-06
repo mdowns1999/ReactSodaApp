@@ -18,7 +18,7 @@ const SodaItem = (props) => {
   return (
     <ProductItem>
       <Link to={props.id} onClick={scrollToTop}>
-        <img src={image} alt={props.description}></img>
+        <img src={image} alt={props.name + " Drink Picture"}></img>
         <div>
           <h2>{props.name}</h2>
           <p>{props.description}</p>

@@ -26,3 +26,9 @@
   background-color: var(--accentTwo, #ff9b42);
   border-radius: 10px;
 }
+
+.slidesHolder {
+  display : flex;
+  transition-timing-function : ease-in;
+  flex-wrap: nowrap;
+  }

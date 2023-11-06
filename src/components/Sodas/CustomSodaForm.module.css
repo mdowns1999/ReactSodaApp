@@ -18,12 +18,18 @@
   max-width: 60%;
 }
 
-.sizeBox {
+.sizeBox fieldset{
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
   margin: 20px 0;
 }
+
+.sizeBox{
+  max-width: 900px;
+  margin: 2em auto;
+}
+
 
 .quantityBox {
   max-width: 700px;

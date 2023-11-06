@@ -88,12 +88,18 @@ const AddReviewForm = (props) => {
             type="number"
             min="1"
             max="10000"
+            placeholder="1000"
             required
           ></input>
         </div>
         <div>
           <label htmlFor="comments">Review:</label>
-          <textarea name="comments" id="comments" type="text"></textarea>
+          <textarea
+            name="comments"
+            id="comments"
+            type="text"
+            placeholder="How did you like your order?"
+          ></textarea>
         </div>
       </div>
 

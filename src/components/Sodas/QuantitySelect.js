@@ -13,6 +13,7 @@ const QuantitySelect = (props) => {
         name="quantity"
         min="1"
         max="20"
+        placeholder="0"
         required
       ></input>
     </div>

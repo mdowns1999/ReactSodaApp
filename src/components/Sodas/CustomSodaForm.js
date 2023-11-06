@@ -69,30 +69,36 @@ const CustomSodaForm = (props) => {
   return (
     <form className={classes.customForm} onSubmit={addtoCartHandler}>
       <div>
-        <h1 className="pageBanner">Syrup Flavors:</h1>
-        <ul>
-          {props.sodaList.map((flavor) => (
-            <RadioButton
-              key={flavor.id}
-              id={flavor.id}
-              name={"soda-select"}
-              value={flavor.price}
-              setSelectedValue={setSodaTotal}
-              label={flavor.name}
-              setSodaID={setSodaID}
-            />
-          ))}
-        </ul>
+        <h1 className="pageBanner">Soda Flavors:</h1>
+        <fieldset>
+          <legend>Pick your Soda:</legend>
+          <ul>
+            {props.sodaList.map((flavor) => (
+              <RadioButton
+                key={flavor.id}
+                id={flavor.id}
+                name={"soda-select"}
+                value={flavor.price}
+                setSelectedValue={setSodaTotal}
+                label={flavor.name}
+                setSodaID={setSodaID}
+              />
+            ))}
+          </ul>
+        </fieldset>
       </div>
       <div>
         <h1 className="pageBanner">Syrup Flavors:</h1>
-        <ul>
-          <CheckBox
-            list={props.syrupList}
-            setSelectedList={setSodaList}
-            setTotalValue={setSyrupTotal}
-          />
-        </ul>
+        <fieldset>
+          <legend>Choose your syrups:</legend>
+          <ul>
+            <CheckBox
+              list={props.syrupList}
+              setSelectedList={setSodaList}
+              setTotalValue={setSyrupTotal}
+            />
+          </ul>
+        </fieldset>
       </div>
 
       <div className={classes.quantityBox}>

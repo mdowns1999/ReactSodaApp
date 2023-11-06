@@ -3,7 +3,8 @@ import RadioButton from "../UI/RadioButton";
 
 const SizeSelect = (props) => {
   return (
-    <>
+    <fieldset>
+      <legend>Size Selection:</legend>
       <RadioButton
         id={"custom_radio_8"}
         name={"size-select"}
@@ -28,7 +29,7 @@ const SizeSelect = (props) => {
         label={"32 oz"}
         setSodaID={null}
       />
-    </>
+    </fieldset>
   );
 };
 

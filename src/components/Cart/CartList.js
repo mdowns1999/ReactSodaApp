@@ -23,7 +23,7 @@ const CartList = (props) => {
 
   //If the carty is empty, let the user know! If not display the cart Item.
   if (props.cartCtx.items.length === 0) {
-    return <p>You have no Items in the Cart</p>;
+    return <h2>You have no Items in the Cart</h2>;
   } else {
     return (
       <ul>

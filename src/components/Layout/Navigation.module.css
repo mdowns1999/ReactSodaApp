@@ -22,12 +22,12 @@
   padding: 10px;
   border-radius: 10px;
   transition: 0.25s;
-  color: #d9e5d6;
+  color: #000000;
 }
 
 .list a:hover,
 .list .active {
-  color: #ff9b42;
+  color: #ff8e2b;
 }
 
 @media screen and (min-width: 768px) {

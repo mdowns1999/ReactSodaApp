@@ -78,9 +78,9 @@ const SodaDetail = () => {
           </div>
           <QuantitySelect quantityRef={quantityRef} />
 
-          <div className={classes.sizeBox}>
+          <fieldset className={classes.sizeBox}>
             <SizeSelect setSize={setSize} />
-          </div>
+          </fieldset>
 
           <Button>Add to Cart</Button>
         </form>

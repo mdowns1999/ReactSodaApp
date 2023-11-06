@@ -1,4 +1,5 @@
 import Rating from "@mui/material/Rating";
+import StarIcon from "@mui/icons-material/Star";
 import { useEffect } from "react";
 import { useState } from "react";
 
@@ -18,6 +19,7 @@ const Star = (props) => {
             setValue(newValue);
           }}
           size="large"
+          emptyIcon={<StarIcon style={{ color: "grey" }} fontSize="inherit" />}
         />
       );
 

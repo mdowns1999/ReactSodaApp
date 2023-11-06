@@ -7,9 +7,16 @@
 .reviewList li {
   border: 1px solid black;
   border-radius: 10px;
-  margin: 20px;
   padding: 1em;
   font-size: 18px;
+  width: 100%;
+  max-width: 750px;
+  margin: 20px auto;
+}
+
+.reviewList li:hover {
+  background-color: rgb(236, 236, 236);
+  transition: 0.5s;
 }
 
 @media screen and (min-width: 768px) {
