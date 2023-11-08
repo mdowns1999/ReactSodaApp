@@ -16,9 +16,6 @@ const SodaProducts = (props) => {
           id={item.id}
           name={item.name}
           description={item.description}
-          price={item.price}
-          image={SODAS[0].imgRoute}
-          amount={item.amount}
         />
       ))}
 
@@ -27,9 +24,6 @@ const SodaProducts = (props) => {
         id={"custom"}
         name={"Custom Drink"}
         description={"Build your own delicious soda!"}
-        price={0}
-        image={SODAS[0].imgRoute}
-        amount={1}
       />
     </>
   );
