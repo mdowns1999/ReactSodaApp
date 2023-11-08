@@ -6,14 +6,16 @@
   align-items: center;
   padding: 50px;
   text-align: center;
+  color:white;
 }
 
 .instagram,
 .facebook {
   width: 40px;
   margin: 0px 20px;
-  color: black;
+  color: white;
   transition: 0.25s;
+  border-radius: 0px;
 }
 
 @media screen and (min-width: 700px) {
