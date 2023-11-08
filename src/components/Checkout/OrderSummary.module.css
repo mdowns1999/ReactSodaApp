@@ -26,6 +26,10 @@
   align-items: center;
 }
 
+.orderInputBox span{
+  color: red;
+}
+
 .orderInputBox .inputBox label,
 .orderInputBox .inputBox input,
 .orderInputBox .inputBox textarea {

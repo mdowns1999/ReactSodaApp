@@ -93,11 +93,11 @@ const OrderSummary = () => {
         </div>
         <div className={classes.orderInputBox}>
           <div className={classes.inputBox}>
-            <label htmlFor="orderName">Name:</label>
+            <label htmlFor="orderName"><span>*</span>Name:</label>
             <input type="text" name="orderName" id="orderName" required></input>
           </div>
           <div className={classes.inputBox}>
-            <label htmlFor="orderPhone">Phone:</label>
+            <label htmlFor="orderPhone"><span>*</span>Phone:</label>
             <input
               type="tel"
               name="orderPhone"

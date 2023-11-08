@@ -3,12 +3,12 @@
   grid-template-columns: 1fr;
   justify-items: center;
   align-items: center;
-  gap: 1em;
+  /* gap: 1em; */
   list-style: none;
-  background-color: #f9dc66;
-  padding: 1em;
+  background-color: transparent;
+  /* padding: 1em; */
   margin: 15px 0;
-  border-radius: 10px;
+  border-bottom: 1px solid black;
 }
 
 .itemImg {
@@ -49,7 +49,7 @@
 
 @media screen and (min-width: 768px) {
   .item {
-    grid-template-columns: 1fr 2fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr;
   }
 
   .details {

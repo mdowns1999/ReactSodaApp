@@ -6,14 +6,14 @@ const CartItem = (props) => {
   const price = `$${priceBySize(props.price, props.size).toFixed(2)}`;
 
   //Get the image route by passing in the name of the image we want.
-  const image = getSodaImage(props.name);
+  // const image = getSodaImage(props.name);
   return (
     <li className={classes.item}>
-      <img
+      {/* <img
         src={image}
         alt={props.name + " Drink Image"}
         className={classes.itemImg}
-      ></img>
+      ></img> */}
       <div className={classes.summary}>
         <h2>
           {props.name} ({props.size} OZ)
