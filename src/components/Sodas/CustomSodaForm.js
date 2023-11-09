@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import classes from "./CustomSodaForm.module.css";
-import CheckBox from "../UI/CheckBox";
+import CheckBoxList from "../UI/CheckBoxList";
 import Button from "../UI/Button";
 import { useEffect } from "react";
 import RadioButton from "../UI/RadioButton";
@@ -91,13 +91,10 @@ const CustomSodaForm = (props) => {
         <h1 className="pageBanner">Syrup Flavors:</h1>
         <fieldset>
           <legend>Choose your syrups:</legend>
-          <ul>
-            <CheckBox
+            <CheckBoxList
               list={props.syrupList}
               setSelectedList={setSodaList}
-              setTotalValue={setSyrupTotal}
-            />
-          </ul>
+              setTotalValue={setSyrupTotal}/>
         </fieldset>
       </div>
 
