@@ -2,6 +2,7 @@ import classes from "./RadioButton.module.css";
 
 const RadioButton = (props) => {
   const handleRadioChange = (event) => {
+    
     //Check if the prop being passed is a function, if it is then access the function to set the value
     if (props.setSelectedValue instanceof Function) {
       props.setSelectedValue(+event.target.value);

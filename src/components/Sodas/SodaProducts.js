@@ -5,7 +5,7 @@ import Button from "../UI/Button";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import fetchHttp from "../../helper/fetchHttp";
 
-const SodaProducts = (props) => {
+const SodaProducts = () => {
   const navigate = useNavigate();
   const SODAS = useLoaderData();
   const sodaList = (
