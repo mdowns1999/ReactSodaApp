@@ -11,6 +11,7 @@ const postOrder = (event, orderNumber, cart) => {
     message: "Could not send soda order!",
     status: 500,
   };
+
   return fetchHttp({
     url: "https://poppinsodasbackend.onrender.com/orders",
     error,
@@ -20,11 +21,11 @@ const postOrder = (event, orderNumber, cart) => {
       "Content-Type": "application/json", // this shows the expected content type
     },
     body: {
-      order_id: orderNumber,
-      order_num: orderNumber,
-      name: event.target.orderName.value,
-      phone: event.target.orderPhone.value,
-      notes: event.target.orderNotes.value,
+      order_id: +orderNumber,
+      order_num: +orderNumber,
+      name: event.target.orderName.value.toString(),
+      phone: event.target.orderPhone.value.toString(),
+      notes: event.target.orderNotes.value.toString(),
       cart: cart,
     },
   });
