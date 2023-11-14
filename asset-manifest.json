@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/static/css/main.949fcd03.css",
-    "main.js": "/static/js/main.b0435a97.js",
-    "static/js/787.654aec8e.chunk.js": "/static/js/787.654aec8e.chunk.js",
-    "static/media/Instagram_Glyph_Black.png": "/static/media/Instagram_Glyph_Black.f17dfc7783ea8b3bb5f7.png",
-    "static/media/root.jpg": "/static/media/root.fb919d7bd686df704c35.jpg",
-    "static/media/mountain.jpg": "/static/media/mountain.41142f2cb69b9858b424.jpg",
-    "static/media/tropical.jpg": "/static/media/tropical.a6b5707adb5efa4057a3.jpg",
-    "static/media/dirty.jpg": "/static/media/dirty.6fcd686147249315fce2.jpg",
-    "static/media/whiteGirl.jpg": "/static/media/whiteGirl.d5079fd7c2fc7236c3f2.jpg",
-    "static/media/sodaLogo.png": "/static/media/sodaLogo.56ea285e416e7bcdf33f.png",
-    "index.html": "/index.html",
-    "main.949fcd03.css.map": "/static/css/main.949fcd03.css.map",
-    "main.b0435a97.js.map": "/static/js/main.b0435a97.js.map",
-    "787.654aec8e.chunk.js.map": "/static/js/787.654aec8e.chunk.js.map"
+    "main.css": "/ReactSodaApp/static/css/main.949fcd03.css",
+    "main.js": "/ReactSodaApp/static/js/main.ea7b5d12.js",
+    "static/js/787.654aec8e.chunk.js": "/ReactSodaApp/static/js/787.654aec8e.chunk.js",
+    "static/media/Instagram_Glyph_Black.png": "/ReactSodaApp/static/media/Instagram_Glyph_Black.f17dfc7783ea8b3bb5f7.png",
+    "static/media/root.jpg": "/ReactSodaApp/static/media/root.fb919d7bd686df704c35.jpg",
+    "static/media/mountain.jpg": "/ReactSodaApp/static/media/mountain.41142f2cb69b9858b424.jpg",
+    "static/media/tropical.jpg": "/ReactSodaApp/static/media/tropical.a6b5707adb5efa4057a3.jpg",
+    "static/media/dirty.jpg": "/ReactSodaApp/static/media/dirty.6fcd686147249315fce2.jpg",
+    "static/media/whiteGirl.jpg": "/ReactSodaApp/static/media/whiteGirl.d5079fd7c2fc7236c3f2.jpg",
+    "static/media/sodaLogo.png": "/ReactSodaApp/static/media/sodaLogo.56ea285e416e7bcdf33f.png",
+    "index.html": "/ReactSodaApp/index.html",
+    "main.949fcd03.css.map": "/ReactSodaApp/static/css/main.949fcd03.css.map",
+    "main.ea7b5d12.js.map": "/ReactSodaApp/static/js/main.ea7b5d12.js.map",
+    "787.654aec8e.chunk.js.map": "/ReactSodaApp/static/js/787.654aec8e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.949fcd03.css",
-    "static/js/main.b0435a97.js"
+    "static/js/main.ea7b5d12.js"
   ]
 }
